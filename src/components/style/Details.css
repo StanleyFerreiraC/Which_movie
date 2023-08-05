@@ -104,6 +104,10 @@ font-size: 30px;
   align-items: center;
 }
 
+.porcent{
+  margin-right: 10px;
+}
+
 .genres-full{
   display: flex;
   flex-direction: row;
@@ -178,6 +182,10 @@ font-size: 30px;
     flex-direction: column;
     align-items: center;
     width: 100%;
+  }
+
+  .porcent{
+    margin-bottom: 15px;
   }
 
   .genres-full{
