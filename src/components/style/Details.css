@@ -31,6 +31,7 @@ font-size: 30px;
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
+  width: 80%;
 }
 
 
@@ -45,6 +46,10 @@ font-size: 30px;
 #banner_details {
   border-radius: 10px;
   margin: 80px 3px 100px 50px;
+}
+
+.vote{
+  margin-right: 10px;
 }
 
 .media-page .movie-card {
@@ -148,6 +153,9 @@ font-size: 30px;
     height: 30%;
   }
 
+  .vote{
+    margin-bottom: 15px;
+  }
   .media-conteiner{
     display: flex;
     flex-direction: column;
