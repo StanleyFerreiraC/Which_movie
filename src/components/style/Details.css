@@ -31,7 +31,6 @@ font-size: 30px;
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
-  width: 80%;
 }
 
 
@@ -103,10 +102,6 @@ font-size: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.porcent{
-  margin-right: 10px;
 }
 
 .genres-full{
@@ -183,10 +178,6 @@ font-size: 30px;
     flex-direction: column;
     align-items: center;
     width: 100%;
-  }
-
-  .porcent{
-    margin-bottom: 15px;
   }
 
   .genres-full{
