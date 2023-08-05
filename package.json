@@ -2,7 +2,7 @@
   "name": "which-movie",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://StanleyFerreiraC.github.io/WhichMovie/",
+  "homepage": "https://StanleyFerreiraC.github.io/Which_movie/",
   "type": "module",
   "scripts": {
     "dev": "vite",
