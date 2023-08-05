@@ -2,15 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import MovieCard from "../components/MovieCard";
 import TvCard from "../components/TvCard";
 import PosterSlide from "../components/posterSlide";
-import Navbar from "../components/Navbar";
 import "../components/style/MoviesGrid.css";
-import { motion } from "framer-motion";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Box } from "@mui/material";
 
-const moviesURL = import.meta.env.VITE_API;
-const tvURL = import.meta.env.VITE_API_TV;
 const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
