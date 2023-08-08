@@ -7,7 +7,7 @@
 }
 
 .app {
-  width: 90%;
+  width: 85%;
 }
 
 .Nota{
@@ -17,7 +17,13 @@
 }
 .poster {
   width: 100%;
+  --swiper-theme-color: #f7d354;
 }
+
+.poster-navigation {
+  color: #fff;
+}
+
 
 .app img {
   width: 250px;
@@ -117,12 +123,55 @@
   color: #f7d354;
 }
 
+.poster .swiper-button-next {
+  height: 100%;
+  position: absolute;
+  color: #f7d354;
+  top: 17px;
+  right: 140px;
+}
 
+.poster .swiper-button-next {
+  visibility: hidden;
+}
+
+.poster:hover .swiper-button-next {
+  visibility: visible;
+}
+
+.poster .swiper-button-next::after {
+  scale: 0.6;
+}
+.poster .swiper-button-prev {
+  height: 100%;
+  position: absolute;
+  color: #f7d354;
+  top: 17px;
+  left: 140px;
+}
+
+
+.poster .swiper-button-prev {
+  visibility: hidden;
+}
+
+.poster:hover .swiper-button-prev {
+  visibility: visible;
+}
+
+.poster .swiper-button-prev::after {
+  scale: 0.6;
+}
+
+.slider-arrow ion-icon {
+  scale: 2;
+  color: #d8d8df;
+}
 
 @media(max-width:450px) {
 
   .info-details-poster {
-    width: 300px;
+    width: 250px;
     font-size: 15px;
   }
 

@@ -108,7 +108,7 @@ const Details = () => {
             
             <div className="info-details">
 
-              <div className="vote">
+              <div className="porcent">
             <ProgressCircle className="progress" percent={movie.vote_average * 10}/>
             </div>
             

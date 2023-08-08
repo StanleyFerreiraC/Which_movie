@@ -1,23 +1,33 @@
+.poster-box{
+    display: flex;
+    justify-content: center;
+}
+
+.voteGenres {
+    margin-bottom: 10px;
+}
+
 .backdrop {
     z-index: -1;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
+    
 }
 .poster-card{
-    z-index: -1;
     background-size: cover;
-    height: 740px;
-    width: 100%;
+    height: 540px;
+    width: 80%;
     padding-top: 100px;
+    border-radius: 10px;
 }
 
 
 @media(max-width:450px) {
 
     .poster-card{
-        height: 530px;
+        height: 330px;
         background-position: center;
         padding-bottom: 100px;
     }

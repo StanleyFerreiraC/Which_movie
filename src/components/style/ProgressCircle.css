@@ -30,18 +30,3 @@
     top: -1px;
     font-size: 9px;
 }
-
-@media(max-width:450px) {
-
-    .cicle-percent{
-        position: absolute;
-        left: 12px;
-        bottom: 12px;
-        color: white;
-    }
-
-    .percent-vote{
-        display: none;
-    }
- 
-  }

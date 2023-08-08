@@ -4,12 +4,24 @@ import TvCard from "../components/TvCard";
 import PosterSlide from "../components/posterSlide";
 import "../components/style/MoviesGrid.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
 
 const Home = () => {
+
+  //resgata o genero para o poster
+  const [mediaGenres, setMediaGenres] =useState();
+
+  const getGenres = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setMediaGenres(data.results);
+  };
+
+
   // Lançamentos recentes
   const [nowMovies, setNowMovies] = useState([]);
 
@@ -50,6 +62,7 @@ const Home = () => {
     // Solicita os filmes recentes
     const nowUrl = `${geralURL}${tmdbConfigs.mediaType.movie}/now_playing?${apiKey}&language=pt-BR`;
     getNowMovies(nowUrl);
+    getGenres(nowUrl);
 
     // Solicita os filmes populares
     const popularUrl = `${geralURL}${tmdbConfigs.mediaType.movie}/popular?${apiKey}&language=pt-BR`;
@@ -102,7 +115,18 @@ const [slidesPerView, setSlidePerView] = useState([]);
 
 <div className="poster-home">
 
-      <Swiper className="poster" slidesPerView={1} >
+      <Swiper className="poster" 
+      slidesPerView={1} 
+       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+       autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+       navigation={{clickable: true}}
+       pagination={{ clickable: true}}
+       onSwiper={() => console.log()}
+       onSlideChange={() => console.log()}
+      >
         {nowMovies.length > 0 &&
           nowMovies.map((movie, index) => (
             <SwiperSlide key={index}>
@@ -110,12 +134,20 @@ const [slidesPerView, setSlidePerView] = useState([]);
             </SwiperSlide>
           ))}
       </Swiper>
+
+      
       </div>
 
 <div className="container">
       <h3 className="title">Recentes</h3>
 
-      <Swiper className="app" slidesPerView={slidesPerView} 
+      <Swiper className="app" 
+       slidesPerView={slidesPerView}
+       modules={[Navigation, Pagination, Scrollbar, A11y]}
+       onSwiper={() => console.log()}
+       onSlideChange={() => console.log()}
+
+
       >
         {nowMovies.length > 0 &&
           nowMovies.map((movie, index) => (

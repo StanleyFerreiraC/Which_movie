@@ -44,6 +44,7 @@ font-size: 30px;
   text-align: center;
 }
 #banner_details {
+  height: 600px;
   border-radius: 10px;
   margin: 80px 3px 100px 50px;
 }
@@ -139,6 +140,7 @@ font-size: 30px;
   height:50px;
   width: 50px;
   border-radius: 10px;
+  margin-right: 2px;
 }
 @media(max-width:450px) {
 

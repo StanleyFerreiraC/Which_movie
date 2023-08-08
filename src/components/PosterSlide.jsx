@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import {motion} from 'framer-motion'
-import { FaStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import tmdbConfigs from "../config/tmdb.configs";
+
+import ProgressCircle from "./ProgressCircle";
 
 const imagesURL = import.meta.env.VITE_IMG;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -12,7 +12,9 @@ import "./style/Backdrop.css";
 
 
 
+
 const PosterSlide = ({movie}) => {
+
 
   const maxLength = 150;
   let viewLimit = movie.overview.slice(0, maxLength);
@@ -22,25 +24,29 @@ const PosterSlide = ({movie}) => {
       viewLimit = movie.overview.slice(0, lastSpaceIndex) + '...';
     }
 
+    //console.log(movie.id);
+
+
   return (
+    <div className="poster-box">
     <div className="poster-card" style={{
-        backgroundImage: `linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)),
+        backgroundImage: `
+        linear-gradient(to right, rgba(0,0,0,1) -100%, rgba(0,0,0,0)),
         url(${backURL + movie.backdrop_path || movie.poster_path})`,
       }}>
 
       <Link className="info-poster" to={`/${tmdbConfigs.mediaType.movie}/${movie.id}`} >
-
-
         <div className="info-details-poster">
-
         <h2 id="poster-title">{movie.title || movie.name}</h2>
-        <p>{viewLimit}</p>
-
+        <div className="voteGenres">
+        < ProgressCircle className="progress" percent={movie.vote_average * 10}/>
         </div>
-
+        <p>{viewLimit}</p>
+        </div>
         <p>
         </p>
       </Link>
+    </div>
     </div>
   );
 };
