@@ -5,6 +5,23 @@
 
 .voteGenres {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.trailer {
+    margin-left: 10px;
+    height: 35px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 12px;
+    border: none;
+}
+#iconTrailer {
+    scale: 1.5;
 }
 
 .backdrop {
@@ -30,5 +47,8 @@
         height: 330px;
         background-position: center;
         padding-bottom: 100px;
+    }
+    .infoPoster{
+        display: none;
     }
   }

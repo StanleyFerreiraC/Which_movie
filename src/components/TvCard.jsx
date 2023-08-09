@@ -19,7 +19,7 @@ const TvCard = ({series}) => {
 
       <Link to={`/${tmdbConfigs.mediaType.tv}/${series.id}`}>
 
-        <img id="banner" src={imagesURL + series.poster_path} alt={series.title} />
+      <div id="banner" style={{ backgroundImage: `url(${imagesURL + series.poster_path})`,  }}></div>
         <div className="Nota">
         <ProgressCircle percent={series.vote_average * 10} />
       </div>

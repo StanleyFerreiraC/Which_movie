@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import tmdbConfigs from "../config/tmdb.configs";
+import YouTube from "react-youtube"
 
 import ProgressCircle from "./ProgressCircle";
 
@@ -15,8 +16,7 @@ import "./style/Backdrop.css";
 
 const PosterSlide = ({movie}) => {
 
-
-  const maxLength = 150;
+  const maxLength = 100;
   let viewLimit = movie.overview.slice(0, maxLength);
   
     if (movie.overview.length > maxLength) {
@@ -24,7 +24,6 @@ const PosterSlide = ({movie}) => {
       viewLimit = movie.overview.slice(0, lastSpaceIndex) + '...';
     }
 
-    //console.log(movie.id);
 
 
   return (
@@ -38,10 +37,17 @@ const PosterSlide = ({movie}) => {
       <Link className="info-poster" to={`/${tmdbConfigs.mediaType.movie}/${movie.id}`} >
         <div className="info-details-poster">
         <h2 id="poster-title">{movie.title || movie.name}</h2>
+
+
+        <div className="infoPoster">
         <div className="voteGenres">
         < ProgressCircle className="progress" percent={movie.vote_average * 10}/>
+        <div className="trailer">
+        <ion-icon id="iconTrailer" name="caret-forward-outline"></ion-icon>
+        </div>
         </div>
         <p>{viewLimit}</p>
+        </div>
         </div>
         <p>
         </p>

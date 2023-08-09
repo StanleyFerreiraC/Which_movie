@@ -2,9 +2,12 @@ import { useEffect, useState, useRef } from "react";
 import MovieCard from "../components/MovieCard";
 import TvCard from "../components/TvCard";
 import PosterSlide from "../components/posterSlide";
-import "../components/style/MoviesGrid.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+
+import "../components/style/MoviesGrid.css";
+import "../components/style/Swiper.css";
+import "../components/style/Resposive.css";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
@@ -13,12 +16,12 @@ import tmdbConfigs from "../config/tmdb.configs";
 const Home = () => {
 
   //resgata o genero para o poster
-  const [mediaGenres, setMediaGenres] =useState();
+  const [trending, setTrending] =useState();
 
-  const getGenres = async (url) => {
+  const getTrending = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    setMediaGenres(data.results);
+    setTrending(data);
   };
 
 
@@ -60,9 +63,12 @@ const Home = () => {
 
   useEffect(() => {
     // Solicita os filmes recentes
+
+    const trendingUrl = `${geralURL}trending/all/day?${apiKey}&language=pt-BR`;
+    getTrending(trendingUrl);
+
     const nowUrl = `${geralURL}${tmdbConfigs.mediaType.movie}/now_playing?${apiKey}&language=pt-BR`;
     getNowMovies(nowUrl);
-    getGenres(nowUrl);
 
     // Solicita os filmes populares
     const popularUrl = `${geralURL}${tmdbConfigs.mediaType.movie}/popular?${apiKey}&language=pt-BR`;
@@ -80,6 +86,7 @@ const Home = () => {
 
   }, []);
 
+  console.log(trending);
 
 const [slidesPerView, setSlidePerView] = useState([]);
 
@@ -89,7 +96,7 @@ const [slidesPerView, setSlidePerView] = useState([]);
       if(window.innerWidth <1920) {
         setSlidePerView(5.2);
       }else{
-        setSlidePerView(6.2)
+        setSlidePerView(5.2)
       }
       if(window.innerWidth <1600) {
         setSlidePerView(4.2);
@@ -139,7 +146,10 @@ const [slidesPerView, setSlidePerView] = useState([]);
       </div>
 
 <div className="container">
-      <h3 className="title">Recentes</h3>
+  <div className="title-box">
+     <h3 className="title">Recentes</h3>
+  </div>
+     
 
       <Swiper className="app" 
        slidesPerView={slidesPerView}
@@ -156,8 +166,11 @@ const [slidesPerView, setSlidePerView] = useState([]);
             </SwiperSlide>
           ))}
       </Swiper>
+      <div className="title-box">
+        <h3 className="title">Popular</h3>
+        </div>
 
-      <h3 className="title">Popular</h3>
+      
 
       <Swiper className="app" slidesPerView={slidesPerView}>
         {popularMovies.length > 0 &&
@@ -167,8 +180,10 @@ const [slidesPerView, setSlidePerView] = useState([]);
             </SwiperSlide>
           ))}
       </Swiper>
-
-      <h3 className="title">Filmes mais bem avaliadas</h3>
+      <div className="title-box">
+        <h3 className="title">Filmes melhor avaliados</h3>
+      </div>
+      
 
       <Swiper className="app" slidesPerView={slidesPerView}>
         {topMovies.length > 0 &&
@@ -178,8 +193,10 @@ const [slidesPerView, setSlidePerView] = useState([]);
             </SwiperSlide>
           ))}
       </Swiper>
-
-      <h3 className="title">Séries mais bem avaliadas</h3>
+      <div className="title-box">
+        <h3 className="title">Séries melhor avaliadas</h3>
+        </div>
+      
 
 
       <Swiper className="app" slidesPerView={slidesPerView}>

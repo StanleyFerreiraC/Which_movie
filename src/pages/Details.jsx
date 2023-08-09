@@ -83,6 +83,8 @@ const Details = () => {
     
   }, []);
 
+  console.log(movie);
+
   return (
     <div className="media-page">
       {movie && (
