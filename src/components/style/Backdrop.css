@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .poster-box{
     display: flex;
     justify-content: center;
@@ -52,59 +51,4 @@
     .infoPoster{
         display: none;
     }
-=======
-.poster-box{
-    display: flex;
-    justify-content: center;
-}
-
-.voteGenres {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.trailer {
-    margin-left: 10px;
-    height: 35px;
-    width: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-    border-radius: 12px;
-    border: none;
-}
-#iconTrailer {
-    scale: 1.5;
-}
-
-.backdrop {
-    z-index: -1;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    
-}
-.poster-card{
-    background-size: cover;
-    height: 540px;
-    width: 80%;
-    padding-top: 100px;
-    border-radius: 10px;
-}
-
-
-@media(max-width:450px) {
-
-    .poster-card{
-        height: 330px;
-        background-position: center;
-        padding-bottom: 100px;
-    }
-    .infoPoster{
-        display: none;
-    }
->>>>>>> 437ce868e3fac8517dcd36f7361c6dd2f3200194
   }
