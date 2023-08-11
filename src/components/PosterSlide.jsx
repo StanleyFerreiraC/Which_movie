@@ -34,7 +34,7 @@ const PosterSlide = ({movie}) => {
         url(${backURL + movie.backdrop_path || movie.poster_path})`,
       }}>
 
-      <Link className="info-poster" to={`/${tmdbConfigs.mediaType.movie}/${movie.id}`} >
+      <Link className="info-poster" to={`/${movie.media_type}/${movie.id}`} >
         <div className="info-details-poster">
         <h2 id="poster-title">{movie.title || movie.name}</h2>
 

@@ -41,4 +41,16 @@
     scale: 2;
     color: #d8d8df;
   }
+
+  @media(max-width:450px) {
+
+    .poster .swiper-button-next {
+      right: 10px;
+    }
+
+    .poster .swiper-button-prev {
+      left: 10px;
+    }
+
+  }
   

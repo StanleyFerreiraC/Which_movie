@@ -16,12 +16,12 @@ import tmdbConfigs from "../config/tmdb.configs";
 const Home = () => {
 
   //resgata o genero para o poster
-  const [trending, setTrending] =useState();
+  const [trending, setTrending] = useState([]);
 
   const getTrending = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    setTrending(data);
+    setTrending(data.results);
   };
 
 
@@ -81,12 +81,11 @@ const Home = () => {
 
     // Solicita as Series melhores avalisadas
     const tvUrl = `${geralURL}${tmdbConfigs.mediaType.tv}/top_rated?${apiKey}&language=pt-BR`;
-
-    getTvTopRated(tvUrl);
+    getTvTopRated(tvUrl)
 
   }, []);
 
-  console.log(trending);
+//console.log(getTrending);
 
 const [slidesPerView, setSlidePerView] = useState([]);
 
@@ -134,8 +133,8 @@ const [slidesPerView, setSlidePerView] = useState([]);
        onSwiper={() => console.log()}
        onSlideChange={() => console.log()}
       >
-        {nowMovies.length > 0 &&
-          nowMovies.map((movie, index) => (
+        {trending.length > 0 &&
+          trending.map((movie, index) => (
             <SwiperSlide key={index}>
               <PosterSlide key={movie.id} movie={movie} />
             </SwiperSlide>

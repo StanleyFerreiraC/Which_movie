@@ -1,7 +1,10 @@
 @media(max-width:450px) {
 
     .info-details-poster {
-      width: 250px;
+      display: flex;
+      margin-top: 200px;
+      width: 260px;
+      height: 100%;
       font-size: 15px;
     }
   
