@@ -57,7 +57,7 @@ const ProgressCircle = ({percent}) => {
 
       <div className="cicle-percent">
         
-        {percent? <div>{percent.toFixed(0)} <span className="percent-vote">%</span></div> : "NR"}
+        {percent? <div>{percent.toFixed(0)}</div> : "NR"}
         
       </div>
     </div>

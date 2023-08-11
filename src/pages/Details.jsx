@@ -38,6 +38,7 @@ const Details = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingGenres, setLoadingGenres] = useState(true);
   const [error, setError] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
 
   const getMedia = async (url) => {
@@ -69,12 +70,14 @@ const Details = () => {
     setMediaGenres(data.genres);
   };
 
+
+  
+
   const getTrailer = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
 
     const ptResults = [];
-    const enResults = [];
 
     for (let i = 0; i < data.results.length; i++) {
 
@@ -102,6 +105,7 @@ const Details = () => {
     width: '500',
     playerVars: {
 
+      autoplay: 1,
 
     },
   };
@@ -127,7 +131,7 @@ const Details = () => {
     
   }, []);
 
-  
+  console.log(movie);
 
   return (
     <div className="media-page">
@@ -140,17 +144,36 @@ const Details = () => {
           ></div>
 
           <div className="media-conteiner">
-          <div>
+          <div className="posterProvider">
             <img
               id="banner_details"
               src={imagesURL + movie.poster_path}
               alt={movie.title}
             />
+
+            <div className="box-provider">
+
+            {isLoading ? (
+  <p>...</p>
+) : error ? (
+  <p></p>
+  ) : providers.length > 0 ? (
+    <ul className="providers" >
+    {providers.map((provider, index) => (
+      <img className="provider_logo"
+       key={index}
+       src={imagesURL + provider.logo_path } 
+       alt={provider.provider_name}/>
+    ))}
+  </ul>
+      ) : null}
+
+    </div>
           </div>
 
           <div className="media-conteiner-box">
 
-            <h2 className="title-details">{movie.title || movie.name} </h2>
+            <h2 className="title-details">{movie.title || movie.name} <div className="date">{mediaType === tmdbConfigs.mediaType.movie ? movie.release_date.split("-")[0] : movie.first_air_date.split("-")[0]}</div></h2>
             <p className="tagline">{movie.tagline}</p>
             
             <div className="info-details">
@@ -178,37 +201,27 @@ const Details = () => {
             <div className="info description">
               <p>{movie.overview}</p>
             </div>
-            <div className="box-provider">
-
-            {isLoading ? (
-  <p>...</p>
-) : error ? (
-  <p></p>
-  ) : providers.length > 0 ? (
-    <ul className="providers" >
-    {providers.map((provider, index) => (
-      <img className="provider_logo"
-       key={index}
-       src={imagesURL + provider.logo_path } 
-       alt={provider.provider_name}/>
-    ))}
-  </ul>
-      ) : null}
-
-    </div>
+            
 
     <div className="trailers">
     {loadingGenres ? (
         <p></p>
       ) : (
-    <YouTube videoId={trailer} opts={opts}/>
+    <div>
+       {!showVideo &&  <button onClick={() => setShowVideo(true)}>Abrir vídeo</button>}
+       {showVideo && <YouTube videoId={trailer} opts={opts}/>}
+       {showVideo && <button onClick={() => setShowVideo(false)}>Fechar</button>}
+    </div>
     )}
     </div>
           </div>
           </div>
         </>
       )}
+
+
     </div>
+    
   );
 };
 //<YouTube videoId={trailer} opts={opts}/>

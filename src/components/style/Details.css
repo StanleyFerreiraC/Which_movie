@@ -50,7 +50,6 @@ font-size: 30px;
 #banner_details {
   height: 600px;
   border-radius: 10px;
-  margin: 80px 3px 100px 50px;
 }
 
 .vote{
@@ -80,6 +79,12 @@ font-size: 30px;
 #backdrop {
   background-image: linear-gradient(rgba(245,245,245,1), rgba(0,0,0,0))
 }
+
+.date{
+  color: #f5f2f2;
+  font-size: 19px;
+}
+
 .tagline {
   text-align: center;
   font-size: 1.3rem;
@@ -138,7 +143,9 @@ font-size: 30px;
 .providers {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin: 10px;
+  padding: 10px 0px 10px 0px;
 }
 .provider_logo {
   height:50px;
@@ -214,10 +221,13 @@ font-size: 30px;
     background: #2e26268a;
     border-radius: 10px;
   }
+
+
   .providers {
     display: flex;
     flex-direction: row;
     margin: 10px;
+    display: none;
   }
   .provider_logo {
     height:50px;
