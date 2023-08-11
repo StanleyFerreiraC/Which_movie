@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     font-family: Helvetica;
     margin: 0;
@@ -22,4 +23,30 @@
 
   h2 {
     margin-bottom: 10px;
+=======
+* {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: black;
+    
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.5s;
+  }
+  
+  a:hover {
+    color: #e5d6a0;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+>>>>>>> 437ce868e3fac8517dcd36f7361c6dd2f3200194
   }
