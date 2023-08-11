@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @media(max-width:450px) {
 
     .info-details-poster {
@@ -27,34 +27,4 @@
     top: 204px;
     left: 110px;
   }
-=======
-@media(max-width:450px) {
-
-    .info-details-poster {
-      display: flex;
-      margin-top: 200px;
-      width: 260px;
-      height: 100%;
-      font-size: 15px;
-    }
-  
-    #banner {
-      width: 100%;
-      max-height: 230px;
-      min-height: 230px;
-    }
-    .movie-card {
-      width: 150px;
-  }
-  
-  #poster-title {
-    font-size: 1.5rem;
-    width: 280px;
-  }
-  .Nota{
-    scale: 0.8;
-    top: 204px;
-    left: 110px;
-  }
->>>>>>> 437ce868e3fac8517dcd36f7361c6dd2f3200194
   }
