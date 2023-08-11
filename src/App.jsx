@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import YouTube from "react-youtube"
 
 import "./App.css";
 import "swiper/css";

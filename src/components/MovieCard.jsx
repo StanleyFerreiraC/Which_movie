@@ -16,11 +16,8 @@ const MovieCard = ({ movie }) => {
     <div className="movie-card" >
 
       <Link to={`/${tmdbConfigs.mediaType.movie}/${movie.id}`}>
-        <img
-          id="banner"
-          src={imagesURL + movie.poster_path}
-          alt={movie.title}
-        />
+        
+      <div id="banner" style={{ backgroundImage: `url(${imagesURL + movie.poster_path})`,  }}></div>
         <div className="Nota">
         <ProgressCircle percent={movie.vote_average * 10} />
       </div>

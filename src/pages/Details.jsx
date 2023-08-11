@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import YouTube from "react-youtube";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination} from 'swiper/modules';
+import YouTube from 'react-youtube';
 import { FaStar } from "react-icons/fa";
 
 import {
@@ -30,6 +32,8 @@ const Details = () => {
   const { mediaType, id } = useParams();
   const [movie, setMedia] = useState();
   const [providers, setProviders] = useState();
+  const [trailer, setTrailer] = useState([])
+  const [trailers, setTrailers] = useState([])
   const [mediaGenres, setMediaGenres] =useState();
   const [isLoading, setIsLoading] = useState(true);
   const [loadingGenres, setLoadingGenres] = useState(true);
@@ -65,6 +69,43 @@ const Details = () => {
     setMediaGenres(data.genres);
   };
 
+  const getTrailer = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const ptResults = [];
+    const enResults = [];
+
+    for (let i = 0; i < data.results.length; i++) {
+
+      if (data.results[i].type === 'Trailer') {
+
+          ptResults.push(data.results[i].key);
+      }
+  }
+
+  
+
+  if (ptResults.length === 0) {
+
+    setTrailer(data.results[0].key);
+} else {
+
+  setTrailer(ptResults[0]);
+}
+
+
+  };
+
+  const opts = {
+    height: '300',
+    width: '500',
+    playerVars: {
+
+
+    },
+  };
+
   useEffect(() => {
 
     const delay = 800;
@@ -76,12 +117,17 @@ const Details = () => {
     getProvider(providerUrl);
     getGenres(mediaUrl)
 
+    const trailerUrl = `${geralURL}${mediaType}/${id}/videos?${apiKey}&language=pt-BR&include_video_language=pt,en`;
+    getTrailer(trailerUrl)
+
     setTimeout(() => {
       setLoadingGenres(false);
 
     }, delay);
     
   }, []);
+
+  
 
   return (
     <div className="media-page">
@@ -103,11 +149,12 @@ const Details = () => {
           </div>
 
           <div className="media-conteiner-box">
+
             <h2 className="title-details">{movie.title || movie.name} </h2>
             <p className="tagline">{movie.tagline}</p>
             
             <div className="info-details">
-
+              
               <div className="porcent">
             <ProgressCircle className="progress" percent={movie.vote_average * 10}/>
             </div>
@@ -149,6 +196,14 @@ const Details = () => {
       ) : null}
 
     </div>
+
+    <div className="trailers">
+    {loadingGenres ? (
+        <p></p>
+      ) : (
+    <YouTube videoId={trailer} opts={opts}/>
+    )}
+    </div>
           </div>
           </div>
         </>
@@ -156,7 +211,7 @@ const Details = () => {
     </div>
   );
 };
-
+//<YouTube videoId={trailer} opts={opts}/>
 //<ProgressCircle percent={movie.vote_average.toFixed(1) * 10}/>
 //<p className="rele">{movie.release_date.split("-")[0]}</p>
 //<ul>{movie.map(( index) => (<p key={index}>{movie.genres}</p> ))}</ul>

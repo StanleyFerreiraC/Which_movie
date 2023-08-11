@@ -7,7 +7,7 @@
 }
 
 .app {
-  width: 90%;
+  width: 85%;
 }
 
 .Nota{
@@ -17,7 +17,13 @@
 }
 .poster {
   width: 100%;
+  --swiper-theme-color: #f7d354;
 }
+
+.poster-navigation {
+  color: #fff;
+}
+
 
 .app img {
   width: 250px;
@@ -36,17 +42,27 @@
   color: #fff;
   font-size: 1.9rem;
   text-align: center;
-  margin: 8rem 0 1rem;
 }
 
 #banner {
-  min-height: 270px;
+  min-height: 375px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
+
 .title .query-text {
   color: #f7d354;
   margin-bottom: 10px;
 }
 
+.title-box{
+  width: 85%;
+  margin: 8rem 0 1rem;
+  display: flex;
+justify-content: flex-start
+}
 #title {
   margin-top: 10px;
   font-size: 16px;
@@ -83,10 +99,6 @@
   height: 10px;
 }
 
-.movies-container::-webkit-scrollbar-thumb {
-  background-color: #f7d354;
-  border-radius: 4px;
-}
 
 .movies-container div {
   width: 30%;
@@ -118,30 +130,3 @@
 }
 
 
-
-@media(max-width:450px) {
-
-  .info-details-poster {
-    width: 300px;
-    font-size: 15px;
-  }
-
-  #banner {
-    width: 100%;
-    max-height: 230px;
-    min-height: 230px;
-  }
-  .movie-card {
-    width: 150px;
-}
-
-#poster-title {
-  font-size: 1.5rem;
-  width: 320px;
-}
-.Nota{
-  scale: 0.8;
-  top: 204px;
-  left: 110px;
-}
-}
