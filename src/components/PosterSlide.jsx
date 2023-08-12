@@ -1,8 +1,5 @@
 
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import tmdbConfigs from "../config/tmdb.configs";
-import YouTube from "react-youtube"
 
 import ProgressCircle from "./ProgressCircle";
 

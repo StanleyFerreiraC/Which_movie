@@ -144,7 +144,7 @@ const Details = () => {
           ></div>
 
           <div className="media-conteiner">
-          <div className="posterProvider">
+          <div className="posterProvide">
             <img
               id="banner_details"
               src={imagesURL + movie.poster_path}
