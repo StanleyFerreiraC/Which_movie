@@ -6,6 +6,7 @@
   background: #00000066;
   flex-direction: column;
   align-items: center;
+  padding-top: 80px;
 }
 
 .media-page svg {
@@ -229,21 +230,39 @@
   margin-right: 2px;
 }
 
-.info-extras-box {
-  width: 80%;
+.trailer-extra-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 80%;
   margin-top: 100px;
 }
 
+.trailer-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #423d3d4f;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.info-extras-box {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
 .trailers {
-  width: 80%;
+  width: 100%;
+  margin-left: 10px;
 }
 
 .info-extras {
-  margin-left: 50px;
+  margin-left: 20px;
   min-height: 100%;
-  min-width: 18%;
+  width: 20%;
   background: #423d3d4f;
   display: flex;
   flex-direction: column;
@@ -257,14 +276,22 @@
 
 .wallpapers {
   width: 80%;
-  height: 100%;
-  margin-top: 130px;
-  margin-bottom: 100px;
+  height: 700px;
+  margin-top: 250px;
 }
 
 .wallpapers img {
-  width: 100%;
-  height: 700px;
+  width: 90%;
+  height: 600px;
+}
+
+.paper-box {
+  margin-top: 20px;
+}
+.paper {
+  display: flex;
+  justify-content: center;
+  height: 620px;
 }
 
 @media (max-width: 450px) {

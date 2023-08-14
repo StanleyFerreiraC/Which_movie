@@ -3,13 +3,7 @@ import MovieCard from "../components/MovieCard";
 import TvCard from "../components/TvCard";
 import PosterSlide from "../components/PosterSlide";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 import "../components/style/MoviesGrid.css";
 import "../components/style/Swiper.css";

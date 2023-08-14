@@ -13,7 +13,8 @@ const InfoExtras = ({ movie }) => {
       id="filme"
       style={{
         marginLeft: "20px",
-        marginTop: "20px",
+        marginTop: "40px",
+        marginRight: "20px",
       }}
     >
       <div className="extras-movie">

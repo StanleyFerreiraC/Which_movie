@@ -7,6 +7,7 @@ import YouTube from "react-youtube";
 import tmdbConfigs from "../config/tmdb.configs";
 
 import "../components/style/Details.css";
+import "../components/style/Swiper.css";
 import ProgressCircle from "../components/ProgressCircle";
 import InfoExtras from "../components/details/InfoExtras";
 
@@ -100,9 +101,13 @@ const Details = () => {
   };
 
   const divRef = useRef();
+  const wallPaperRef = useRef();
 
   function handleClick() {
     divRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+  function handleClickPaper() {
+    wallPaperRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
   useEffect(() => {
@@ -211,9 +216,9 @@ const Details = () => {
                 <button onClick={handleClick}>
                   <ion-icon id="play" name="caret-forward"></ion-icon>Trailer
                 </button>
-                <button className="wallPaper">
+                <button className="wallPaper" onClick={handleClickPaper}>
                   <ion-icon id="icon-wallpaper" name="image-outline"></ion-icon>
-                  Wallpapers
+                  Plano de fundo
                 </button>
               </div>
 
@@ -222,6 +227,7 @@ const Details = () => {
                   <h3>Elenco principal</h3>
                 </div>
 
+                <div>
                 <Swiper slidesPerView={6.5}>
                   {isLoading ? (
                     <p>...</p>
@@ -244,15 +250,22 @@ const Details = () => {
                     ))
                   ) : null}
                 </Swiper>
+                </div>
               </div>
             </div>
           </div>
-          <div className="info-extras-box">
+
+          <div ref={divRef} className="trailer-extra-box">
+            <div>
+            <h2>Trailer</h2>
+            </div>
+            <div className="trailer-box">
+          <div className="info-extras-box" >
             <div className="trailers">
               {loadingGenres ? (
                 <p></p>
               ) : (
-                <div ref={divRef}>
+                <div>
                   <YouTube videoId={trailer} opts={opts} />
                 </div>
               )}
@@ -265,12 +278,25 @@ const Details = () => {
               ) : null}
             </div>
           </div>
+          </div>
+          </div>
 
-          <div className="wallpapers">
-            <Swiper slidesPerView={1}>
-              {wallpapers.slice(0, 5).map((wallPaper, index) => (
+          <div className="wallpapers" >
+          <div>
+            <h2>Wallpapers</h2>
+            </div>
+            <Swiper
+            className="paper-box"
+              slidesPerView={1}
+              modules={[Navigation, Pagination]}
+              navigation={ true }
+              pagination={{ clickable: true }}
+              onSwiper={() => console.log()}
+              onSlideChange={() => console.log()}
+            >
+              {wallpapers.slice(0,20).map((wallPaper, index) => (
                 <SwiperSlide key={index}>
-                  <div className="paper">
+                  <div ref={wallPaperRef} className="paper">
                     <img src={backURL + wallPaper.file_path} />
                   </div>
                 </SwiperSlide>
