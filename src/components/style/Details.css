@@ -3,8 +3,9 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 90vh;
   background: #00000066;
+  flex-direction: column;
+  align-items: center;
 }
 
 .media-page svg {
@@ -52,6 +53,7 @@ margin-bottom: 20px;
   align-items: center;
   border-radius: 10px;
   width: 80%;
+  margin-top: 100px;
 }
 
 
@@ -95,8 +97,6 @@ margin-bottom: 20px;
 #backdrop {
   background-image: linear-gradient(rgba(245,245,245,1), rgba(0,0,0,0))
 }
-
-
 
 .genres-full{
   display: flex;
@@ -145,9 +145,43 @@ margin-bottom: 20px;
   display: flex;
 }
 
+.ver-trailer{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.ver-trailer button{
+  background: #db0e0e;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #f5f2f2;
+  display: flex;
+  font-size: 15px;
+}
+
+.wallPaper{
+  margin-left: 10px;
+}
+
+.ver-trailer :hover {
+  background: #7a0606;
+}
+
+#play {
+  margin-right: 2px;
+  scale: 1.5;
+}
+
+#icon-wallpaper{
+  scale: 1.5;
+  margin-right: 7px;
+}
+
 .cast-box{
   width: 100%;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 
@@ -167,6 +201,9 @@ margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
 }
 .cast-barra p{
   font-size: 14px;
@@ -196,7 +233,7 @@ margin-bottom: 20px;
 }
 
 .trailers{
-  margin-top: 10px;
+  margin-top: 200px;
 }
 @media(max-width:450px) {
 

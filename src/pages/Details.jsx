@@ -3,19 +3,8 @@ import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination} from 'swiper/modules';
 import YouTube from 'react-youtube';
-import { FaStar } from "react-icons/fa";
 
-import {
-  BsGraphUp,
-  BsWallet2,
-  BsHourglassSplit,
-  BsFillFileEarmarkTextFill,
-} from "react-icons/bs";
-
-import MovieCard from "../components/MovieCard";
 import tmdbConfigs from "../config/tmdb.configs";
-import uiConfigs from "../config/image.Configs";
-import Home from "./Home";
 
 import "../components/style/Details.css";
 import ProgressCircle from "../components/ProgressCircle";
@@ -158,7 +147,6 @@ const Details = () => {
             />
 
             <div className="box-provider">
-
             {isLoading ? (
   <p>...</p>
 ) : providers.length > 0 ? (
@@ -171,7 +159,6 @@ const Details = () => {
     ))}
   </ul>
       ) : null}
-
     </div>
           </div>
 
@@ -207,14 +194,18 @@ const Details = () => {
 
               <p>{movie.overview}</p>
 
-            <div className="cast-box">
+              <div className="ver-trailer">
+                <button ><ion-icon id="play" name="caret-forward"></ion-icon>Trailer</button>
+                <button className="wallPaper" ><ion-icon  id="icon-wallpaper" name="image-outline"></ion-icon>Wallpapers</button>
+              </div>
 
+            <div className="cast-box">
             <div style={{marginBottom: "10px",}}>
             <h3>Elenco principal</h3>
             </div>
 
 <Swiper
-slidesPerView={6.5} 
+slidesPerView={6.5}
 >
             {isLoading ? (
   <p>...</p>
@@ -236,6 +227,8 @@ slidesPerView={6.5}
 
     </div>
           </div>
+          </div>
+          <div className="trailer-full">
           </div>
         </>
       )}
