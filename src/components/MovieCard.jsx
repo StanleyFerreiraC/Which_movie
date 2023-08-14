@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 
 const imagesURL = import.meta.env.VITE_IMG;
@@ -11,20 +10,19 @@ import ProgressCircle from "./ProgressCircle";
 
 import "./style/MoviesGrid.css";
 
-
 const MovieCard = ({ movie }) => {
   return (
-    <div className="movie-card" >
-
+    <div className="movie-card">
       <Link to={`/${tmdbConfigs.mediaType.movie}/${movie.id}`}>
-        
-      <div id="banner" style={{ backgroundImage: `url(${imagesURL + movie.poster_path})`,  }}></div>
+        <div
+          id="banner"
+          style={{ backgroundImage: `url(${imagesURL + movie.poster_path})` }}
+        ></div>
         <div className="Nota">
-        <ProgressCircle percent={movie.vote_average * 10} />
-      </div>
+          <ProgressCircle percent={movie.vote_average * 10} />
+        </div>
         <h2 id="title">{movie.title || movie.name}</h2>
-        <p>
-        </p>
+        <p></p>
       </Link>
     </div>
   );

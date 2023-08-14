@@ -3,7 +3,13 @@ import MovieCard from "../components/MovieCard";
 import TvCard from "../components/TvCard";
 import PosterSlide from "../components/PosterSlide";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
 
 import "../components/style/MoviesGrid.css";
 import "../components/style/Swiper.css";
@@ -14,7 +20,6 @@ const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
 
 const Home = () => {
-
   //resgata o genero para o poster
   const [trending, setTrending] = useState([]);
 
@@ -23,7 +28,6 @@ const Home = () => {
     const data = await res.json();
     setTrending(data.results);
   };
-
 
   // Lançamentos recentes
   const [nowMovies, setNowMovies] = useState([]);
@@ -81,132 +85,121 @@ const Home = () => {
 
     // Solicita as Series melhores avalisadas
     const tvUrl = `${geralURL}${tmdbConfigs.mediaType.tv}/top_rated?${apiKey}&language=pt-BR`;
-    getTvTopRated(tvUrl)
-
+    getTvTopRated(tvUrl);
   }, []);
 
-//console.log(getTrending);
+  //console.log(getTrending);
 
-const [slidesPerView, setSlidePerView] = useState([]);
+  const [slidesPerView, setSlidePerView] = useState([]);
 
   useEffect(() => {
-
-    function handleResize(){
-      if(window.innerWidth <1920) {
+    function handleResize() {
+      if (window.innerWidth < 1920) {
         setSlidePerView(5.2);
-      }else{
-        setSlidePerView(5.2)
+      } else {
+        setSlidePerView(5.2);
       }
-      if(window.innerWidth <1600) {
+      if (window.innerWidth < 1600) {
         setSlidePerView(4.2);
       }
-      if(window.innerWidth <1230) {
+      if (window.innerWidth < 1230) {
         setSlidePerView(3.2);
       }
-      if(window.innerWidth <900) {
+      if (window.innerWidth < 900) {
         setSlidePerView(2.1);
       }
     }
 
     handleResize();
 
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize);
 
-    return () =>{window.removeEventListener("resize", handleResize)}
-
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
     <div>
-
-<div className="poster-home">
-
-      <Swiper className="poster" 
-      slidesPerView={1} 
-       modules={[Navigation, Pagination]}
-       autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-       navigation={{clickable: true}}
-       pagination={{clickable: true}}
-       onSwiper={() => console.log()}
-       onSlideChange={() => console.log()}
-      >
-        {trending.length > 0 &&
-          trending.map((movie, index) => (
-            <SwiperSlide key={index}>
-              <PosterSlide key={movie.id} movie={movie} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
-
-      
+      <div className="poster-home">
+        <Swiper
+          className="poster"
+          slidesPerView={1}
+          modules={[Navigation, Pagination]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          navigation={{ clickable: true }}
+          pagination={{ clickable: true }}
+          onSwiper={() => console.log()}
+          onSlideChange={() => console.log()}
+        >
+          {trending.length > 0 &&
+            trending.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <PosterSlide key={movie.id} movie={movie} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
       </div>
 
-<div className="container">
-  <div className="title-box">
-     <h3 className="title">Recentes</h3>
-  </div>
-     
-
-      <Swiper className="app" 
-       slidesPerView={slidesPerView}
-       modules={[Navigation, Pagination]}
-       onSwiper={() => console.log()}
-       onSlideChange={() => console.log()}
-
-
-      >
-        {nowMovies.length > 0 &&
-          nowMovies.map((movie, index) => (
-            <SwiperSlide key={index} >
-              <MovieCard key={movie.id} movie={movie} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
-      <div className="title-box">
-        <h3 className="title">Popular</h3>
+      <div className="container">
+        <div className="title-box">
+          <h3 className="title">Recentes</h3>
         </div>
 
-      
+        <Swiper
+          className="app"
+          slidesPerView={slidesPerView}
+          modules={[Navigation, Pagination]}
+          onSwiper={() => console.log()}
+          onSlideChange={() => console.log()}
+        >
+          {nowMovies.length > 0 &&
+            nowMovies.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <MovieCard key={movie.id} movie={movie} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+        <div className="title-box">
+          <h3 className="title">Popular</h3>
+        </div>
 
-      <Swiper className="app" slidesPerView={slidesPerView}>
-        {popularMovies.length > 0 &&
-          popularMovies.map((movie, index) => (
-            <SwiperSlide key={index}>
-              <MovieCard key={movie.id} movie={movie} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
-      <div className="title-box">
-        <h3 className="title">Filmes melhor avaliados</h3>
+        <Swiper className="app" slidesPerView={slidesPerView}>
+          {popularMovies.length > 0 &&
+            popularMovies.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <MovieCard key={movie.id} movie={movie} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+        <div className="title-box">
+          <h3 className="title">Filmes melhor avaliados</h3>
+        </div>
+
+        <Swiper className="app" slidesPerView={slidesPerView}>
+          {topMovies.length > 0 &&
+            topMovies.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <MovieCard key={movie.id} movie={movie} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+        <div className="title-box">
+          <h3 className="title">Séries melhor avaliadas</h3>
+        </div>
+
+        <Swiper className="app" slidesPerView={slidesPerView}>
+          {tvTopRated.length > 0 &&
+            tvTopRated.map((series, index) => (
+              <SwiperSlide key={index}>
+                <TvCard key={series.id} series={series} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
       </div>
-      
-
-      <Swiper className="app" slidesPerView={slidesPerView}>
-        {topMovies.length > 0 &&
-          topMovies.map((movie, index) => (
-            <SwiperSlide key={index}>
-              <MovieCard key={movie.id} movie={movie} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
-      <div className="title-box">
-        <h3 className="title">Séries melhor avaliadas</h3>
-        </div>
-      
-
-
-      <Swiper className="app" slidesPerView={slidesPerView}>
-        {tvTopRated.length > 0 &&
-          tvTopRated.map((series, index) => (
-            <SwiperSlide key={index}>
-              <TvCard key={series.id} series={series} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
-    </div>
     </div>
   );
 };

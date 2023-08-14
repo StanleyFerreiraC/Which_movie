@@ -1,47 +1,47 @@
 #navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: #00000066;
-    width: 100%
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #00000066;
+  width: 100%;
+}
 
-  #navbar h2 a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-shadow: 1px 1px black;
-  }
-  
-  #navbar form {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  #navbar input {
-    padding: 0.2rem 0.8rem;
-    border-radius: 4px;
-    border: none;
-    border-radius: 10px;
-    width: 300px;
-  }
-  
-  #navbar form button {
-    background-color: #f7d354;
-    border: 2px solid #f7d354;
-    border-radius: 4px;
-    color: #000;
-    padding: 0.3rem;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 10px;
-  }
+#navbar h2 a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 1px 1px black;
+}
 
-  @media(max-width:450px) {
-    #navbar {
-      flex-direction: column;
-    }
+#navbar form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#navbar input {
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  border: none;
+  border-radius: 10px;
+  width: 300px;
+}
+
+#navbar form button {
+  background-color: #f7d354;
+  border: 2px solid #f7d354;
+  border-radius: 4px;
+  color: #000;
+  padding: 0.3rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+@media (max-width: 450px) {
+  #navbar {
+    flex-direction: column;
   }
+}

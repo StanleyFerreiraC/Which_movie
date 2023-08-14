@@ -1,57 +1,53 @@
+.poster .swiper-button-next {
+  height: 100%;
+  position: absolute;
+  color: #f7d354;
+  top: 17px;
+  right: 140px;
+}
 
 .poster .swiper-button-next {
-    height: 100%;
-    position: absolute;
-    color: #f7d354;
-    top: 17px;
-    right: 140px;
-  }
-  
+  visibility: hidden;
+}
+
+.poster:hover .swiper-button-next {
+  visibility: visible;
+}
+
+.poster .swiper-button-next::after {
+  scale: 0.6;
+}
+.poster .swiper-button-prev {
+  height: 100%;
+  position: absolute;
+  color: #f7d354;
+  top: 17px;
+  left: 140px;
+}
+
+.poster .swiper-button-prev {
+  visibility: hidden;
+}
+
+.poster:hover .swiper-button-prev {
+  visibility: visible;
+}
+
+.poster .swiper-button-prev::after {
+  scale: 0.6;
+}
+
+.slider-arrow ion-icon {
+  scale: 2;
+  color: #d8d8df;
+}
+
+@media (max-width: 450px) {
   .poster .swiper-button-next {
-    visibility: hidden;
+    right: 10px;
   }
-  
-  .poster:hover .swiper-button-next {
-    visibility: visible;
-  }
-  
-  .poster .swiper-button-next::after {
-    scale: 0.6;
-  }
+
   .poster .swiper-button-prev {
-    height: 100%;
-    position: absolute;
-    color: #f7d354;
-    top: 17px;
-    left: 140px;
+    left: 10px;
   }
-  
-  .poster .swiper-button-prev {
-    visibility: hidden;
-  }
-  
-  .poster:hover .swiper-button-prev {
-    visibility: visible;
-  }
-  
-  .poster .swiper-button-prev::after {
-    scale: 0.6;
-  }
-  
-  .slider-arrow ion-icon {
-    scale: 2;
-    color: #d8d8df;
-  }
-
-  @media(max-width:450px) {
-
-    .poster .swiper-button-next {
-      right: 10px;
-    }
-
-    .poster .swiper-button-prev {
-      left: 10px;
-    }
-
-  }
-  
+}

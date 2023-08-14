@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
@@ -10,28 +9,22 @@ import ProgressCircle from "./ProgressCircle";
 
 import "./style/MoviesGrid.css";
 
-
-
-const TvCard = ({series}) => {
-
-
+const TvCard = ({ series }) => {
   return (
     <div className="movie-card">
-
       <Link to={`/${tmdbConfigs.mediaType.tv}/${series.id}`}>
-
-      <div id="banner" style={{ backgroundImage: `url(${imagesURL + series.poster_path})`,  }}></div>
+        <div
+          id="banner"
+          style={{ backgroundImage: `url(${imagesURL + series.poster_path})` }}
+        ></div>
         <div className="Nota">
-        <ProgressCircle percent={series.vote_average * 10} />
-      </div>
+          <ProgressCircle percent={series.vote_average * 10} />
+        </div>
         <h2 id="title">{series.name}</h2>
-        <p>
-        </p>
+        <p></p>
       </Link>
     </div>
   );
-
 };
-
 
 export default TvCard;

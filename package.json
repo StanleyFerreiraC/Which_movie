@@ -1,4 +1,3 @@
-
 {
   "name": "which-movie",
   "private": true,
@@ -37,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
     "gh-pages": "^5.0.0",
+    "prettier": "3.0.1",
     "vite": "^4.4.0"
   }
 }

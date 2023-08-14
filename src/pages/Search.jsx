@@ -7,10 +7,9 @@ const searchURL = import.meta.env.VITE_SEARCH;
 const searchTvURL = import.meta.env.VITE_SEARCH_TV;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-import "../components/style/Search.css";import SearchCard from "../components/SearchCard";
+import "../components/style/Search.css";
+import SearchCard from "../components/SearchCard";
 import SearchTvCard from "../components/SearchTvCard";
-;
-
 const Search = () => {
   const [searchParams] = useSearchParams();
 

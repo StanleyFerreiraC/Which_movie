@@ -17,7 +17,7 @@
   margin-right: 10px;
 }
 
-#backdrop{
+#backdrop {
   z-index: -1;
   background-size: cover;
   position: absolute;
@@ -29,14 +29,14 @@
 
 .title-details {
   font-size: 3rem;
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.date{
+.date {
   color: #f5f2f2;
   font-size: 2.8rem;
   margin-left: 20px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .tagline {
@@ -46,8 +46,7 @@ margin-bottom: 20px;
   margin-bottom: 1rem;
 }
 
-
-.media-conteiner{
+.media-conteiner {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -56,8 +55,7 @@ margin-bottom: 20px;
   margin-top: 100px;
 }
 
-
-.media-conteiner-box{
+.media-conteiner-box {
   width: 65%;
   display: flex;
   flex-direction: column;
@@ -69,7 +67,7 @@ margin-bottom: 20px;
   border-radius: 10px;
 }
 
-.vote{
+.vote {
   margin-right: 10px;
 }
 
@@ -95,17 +93,17 @@ margin-bottom: 20px;
 }
 
 #backdrop {
-  background-image: linear-gradient(rgba(245,245,245,1), rgba(0,0,0,0))
+  background-image: linear-gradient(rgba(245, 245, 245, 1), rgba(0, 0, 0, 0));
 }
 
-.genres-full{
+.genres-full {
   display: flex;
   flex-direction: row;
 }
 
-.genres-border{
+.genres-border {
   margin-right: 10px;
-  background-color:#db0e0e;
+  background-color: #db0e0e;
   border-radius: 12px;
   padding: 5px 12px 5px 12px;
 }
@@ -145,13 +143,13 @@ margin-bottom: 20px;
   display: flex;
 }
 
-.ver-trailer{
+.ver-trailer {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
 }
 
-.ver-trailer button{
+.ver-trailer button {
   background: #db0e0e;
   padding: 10px;
   border-radius: 5px;
@@ -161,7 +159,7 @@ margin-bottom: 20px;
   font-size: 15px;
 }
 
-.wallPaper{
+.wallPaper {
   margin-left: 10px;
 }
 
@@ -174,18 +172,17 @@ margin-bottom: 20px;
   scale: 1.5;
 }
 
-#icon-wallpaper{
+#icon-wallpaper {
   scale: 1.5;
   margin-right: 7px;
 }
 
-.cast-box{
+.cast-box {
   width: 100%;
   margin-top: 70px;
 }
 
-
-.cast{
+.cast {
   height: 170px;
   width: 120px;
   background-size: cover;
@@ -194,7 +191,7 @@ margin-bottom: 20px;
   border-radius: 10px;
 }
 
-.cast-barra{
+.cast-barra {
   background: #27212194;
   height: 30px;
   width: 100%;
@@ -205,11 +202,11 @@ margin-bottom: 20px;
   border-bottom-right-radius: 10px;
   text-align: center;
 }
-.cast-barra p{
+.cast-barra p {
   font-size: 14px;
 }
 
-#icon-extra{
+#icon-extra {
   scale: 1.3;
   margin-right: 5px;
 }
@@ -226,13 +223,13 @@ margin-bottom: 20px;
   padding: 10px 0px 10px 0px;
 }
 .provider_logo {
-  height:50px;
+  height: 50px;
   width: 50px;
   border-radius: 10px;
   margin-right: 2px;
 }
 
-.info-extras-box{
+.info-extras-box {
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -243,8 +240,7 @@ margin-bottom: 20px;
   width: 80%;
 }
 
-
-.info-extras{
+.info-extras {
   margin-left: 50px;
   min-height: 100%;
   min-width: 18%;
@@ -255,14 +251,24 @@ margin-bottom: 20px;
   border-radius: 10px;
 }
 
-.extras{
+.extras {
   margin-top: 20px;
 }
 
+.wallpapers {
+  width: 80%;
+  height: 100%;
+  margin-top: 130px;
+  margin-bottom: 100px;
+}
 
-@media(max-width:450px) {
+.wallpapers img {
+  width: 100%;
+  height: 700px;
+}
 
-  #backdrop{
+@media (max-width: 450px) {
+  #backdrop {
     z-index: -1;
     background-size: cover;
     position: top;
@@ -273,10 +279,10 @@ margin-bottom: 20px;
     height: 30%;
   }
 
-  .vote{
+  .vote {
     margin-bottom: 15px;
   }
-  .media-conteiner{
+  .media-conteiner {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,11 +301,11 @@ margin-bottom: 20px;
   .title-details {
     font-size: 24px;
     min-width: 300px;
-    }
+  }
 
-    .tagline {
-      display: none;
-    }
+  .tagline {
+    display: none;
+  }
 
   .info-details {
     display: flex;
@@ -308,7 +314,7 @@ margin-bottom: 20px;
     width: 100%;
   }
 
-  .genres-full{
+  .genres-full {
     display: flex;
     flex-direction: row;
     margin-right: 10px;
@@ -325,7 +331,6 @@ margin-bottom: 20px;
     border-radius: 10px;
   }
 
-
   .providers {
     display: flex;
     flex-direction: row;
@@ -333,7 +338,7 @@ margin-bottom: 20px;
     display: none;
   }
   .provider_logo {
-    height:50px;
+    height: 50px;
     width: 50px;
     border-radius: 10px;
   }

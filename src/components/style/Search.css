@@ -1,13 +1,13 @@
-.containerSearch  .title {
-    color: #fff;
-    font-size: 1.9rem;
-    text-align: center;
-    margin: 2rem 0 1rem;
-  }
-  
-  .title .query-text {
-    color: #f7d354;
-  }
+.containerSearch .title {
+  color: #fff;
+  font-size: 1.9rem;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
+.title .query-text {
+  color: #f7d354;
+}
 
 .movies-containerSearch {
   list-style: none;

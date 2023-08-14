@@ -10,7 +10,7 @@
   width: 85%;
 }
 
-.Nota{
+.Nota {
   position: absolute;
   top: 350px;
   left: 210px;
@@ -24,7 +24,6 @@
   color: #fff;
 }
 
-
 .app img {
   width: 250px;
   height: 370px;
@@ -36,7 +35,6 @@
 .movie-card {
   width: 220px;
 }
-
 
 .container .title {
   color: #fff;
@@ -57,11 +55,11 @@
   margin-bottom: 10px;
 }
 
-.title-box{
+.title-box {
   width: 85%;
   margin: 8rem 0 1rem;
   display: flex;
-justify-content: flex-start
+  justify-content: flex-start;
 }
 #title {
   margin-top: 10px;
@@ -99,7 +97,6 @@ justify-content: flex-start
   height: 10px;
 }
 
-
 .movies-container div {
   width: 30%;
   color: #fff;
@@ -128,4 +125,3 @@ justify-content: flex-start
 .movies-container div svg {
   color: #f7d354;
 }
-

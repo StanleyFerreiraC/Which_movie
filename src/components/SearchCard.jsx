@@ -9,8 +9,7 @@ import ProgressCircle from "./ProgressCircle";
 
 const SearchCard = ({ movie }) => {
   return (
-    <div className="movie-card" >
-
+    <div className="movie-card">
       <Link to={`/${tmdbConfigs.mediaType.movie}/${movie.id}`}>
         <img
           id="banner"
@@ -18,8 +17,7 @@ const SearchCard = ({ movie }) => {
           alt={movie.title}
         />
         <h2 id="title">{movie.title || movie.name}</h2>
-        <p>
-        </p>
+        <p></p>
       </Link>
     </div>
   );
