@@ -187,7 +187,7 @@ margin-bottom: 20px;
 
 .cast{
   height: 170px;
-  width: 118px;
+  width: 120px;
   background-size: cover;
   display: flex;
   align-items: flex-end;
@@ -215,7 +215,7 @@ margin-bottom: 20px;
 }
 
 .box-provider {
-  background: #201d1d73;
+  background: #423d3d4f;
   border-radius: 10px;
 }
 .providers {
@@ -232,9 +232,34 @@ margin-bottom: 20px;
   margin-right: 2px;
 }
 
-.trailers{
-  margin-top: 200px;
+.info-extras-box{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
 }
+
+.trailers {
+  width: 80%;
+}
+
+
+.info-extras{
+  margin-left: 50px;
+  min-height: 100%;
+  min-width: 18%;
+  background: #423d3d4f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.extras{
+  margin-top: 20px;
+}
+
+
 @media(max-width:450px) {
 
   #backdrop{

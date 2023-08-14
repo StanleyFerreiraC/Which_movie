@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination} from 'swiper/modules';
@@ -8,6 +8,7 @@ import tmdbConfigs from "../config/tmdb.configs";
 
 import "../components/style/Details.css";
 import ProgressCircle from "../components/ProgressCircle";
+import InfoExtras from "../components/details/InfoExtras";
 
 
 
@@ -86,11 +87,9 @@ const Details = () => {
   };
 
   const opts = {
-    height: '300',
-    width: '500',
+    height: '500',
+    width: '100%',
     playerVars: {
-
-      autoplay: 1,
 
     },
   };
@@ -102,6 +101,13 @@ const Details = () => {
       currency: "USD",
     });
   };
+
+  const divRef = useRef();
+
+  function handleClick()  {
+    divRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+
 
   useEffect(() => {
 
@@ -126,7 +132,7 @@ const Details = () => {
     
   }, []);
 
- // console.log(cast);
+ console.log(movie);
 
   return (
     <div className="media-page">
@@ -195,7 +201,7 @@ const Details = () => {
               <p>{movie.overview}</p>
 
               <div className="ver-trailer">
-                <button ><ion-icon id="play" name="caret-forward"></ion-icon>Trailer</button>
+                <button onClick={handleClick} ><ion-icon id="play" name="caret-forward"></ion-icon>Trailer</button>
                 <button className="wallPaper" ><ion-icon  id="icon-wallpaper" name="image-outline"></ion-icon>Wallpapers</button>
               </div>
 
@@ -228,20 +234,32 @@ slidesPerView={6.5}
     </div>
           </div>
           </div>
-          <div className="trailer-full">
-          </div>
+          <div className="info-extras-box">
+          <div className="trailers">
+    {loadingGenres ? (
+        <p></p>
+      ) : (
+    <div ref={divRef} >
+       <YouTube  videoId={trailer} opts={opts}/>
+    </div>
+    )}
+    </div>
+    <div className="info-extras">
+    { mediaType == "movie" ? (
+            <div >
+              <InfoExtras movie={movie}/>
+            </div>
+           ) : null}
+    </div>
+    </div>
         </>
       )}
-
 
     </div>
     
   );
 };
 
-//<YouTube videoId={trailer} opts={opts}/>
-//<ProgressCircle percent={movie.vote_average.toFixed(1) * 10}/>
-//<p className="rele">{movie.release_date.split("-")[0]}</p>
-//<ul>{movie.map(( index) => (<p key={index}>{movie.genres}</p> ))}</ul>
-
 export default Details;
+//<YouTube videoId={trailer} opts={opts}/>
+
