@@ -33,11 +33,10 @@ const Details = () => {
   const [movie, setMedia] = useState();
   const [providers, setProviders] = useState();
   const [trailer, setTrailer] = useState([])
-  const [trailers, setTrailers] = useState([])
-  const [mediaGenres, setMediaGenres] =useState();
+  const [mediaGenres, setMediaGenres] = useState();
+  const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingGenres, setLoadingGenres] = useState(true);
-  const [error, setError] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
 
@@ -48,8 +47,7 @@ const Details = () => {
   };
 
   const getProvider = async (url) => {
-    try {
-      const res = await fetch(url);
+        const res = await fetch(url);
       const data = await res.json();
       if (data.results && data.results.BR && data.results.BR.flatrate && data.results.BR.flatrate.length > 0) {
         setProviders(data.results.BR.flatrate);
@@ -57,11 +55,6 @@ const Details = () => {
         setProviders([]);
       }
       setIsLoading(false);
-    } catch (error) {
-      console.error('Erro na chamada da API:', error);
-      setError(true);
-      setIsLoading(false);
-    }
   };
 
   const getGenres = async (url) => {
@@ -70,8 +63,11 @@ const Details = () => {
     setMediaGenres(data.genres);
   };
 
-
-  
+  const getCast = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setCast(data.cast);
+  };
 
   const getTrailer = async (url) => {
     const res = await fetch(url);
@@ -110,6 +106,14 @@ const Details = () => {
     },
   };
 
+
+  const formatCurrency = (number) => {
+    return number.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  };
+
   useEffect(() => {
 
     const delay = 800;
@@ -121,17 +125,19 @@ const Details = () => {
     getProvider(providerUrl);
     getGenres(mediaUrl)
 
+    const castUrl = `${geralURL}${mediaType}/${id}/credits?${apiKey}&language=pt-BR`;
+    getCast(castUrl)
+
     const trailerUrl = `${geralURL}${mediaType}/${id}/videos?${apiKey}&language=pt-BR&include_video_language=pt,en`;
     getTrailer(trailerUrl)
 
     setTimeout(() => {
       setLoadingGenres(false);
-
     }, delay);
     
   }, []);
 
-  console.log(movie);
+ // console.log(cast);
 
   return (
     <div className="media-page">
@@ -139,7 +145,7 @@ const Details = () => {
         <>
           <div id="backdrop"
             style={{
-              backgroundImage: ` linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)),url(${backURL + movie.backdrop_path || movie.poster_path})`,
+              backgroundImage: ` linear-gradient(to top, rgba(0,0,0,1) 20%, rgba(0,0,0,0)),url(${backURL + movie.backdrop_path || movie.poster_path})`,
             }}
           ></div>
 
@@ -155,9 +161,7 @@ const Details = () => {
 
             {isLoading ? (
   <p>...</p>
-) : error ? (
-  <p></p>
-  ) : providers.length > 0 ? (
+) : providers.length > 0 ? (
     <ul className="providers" >
     {providers.map((provider, index) => (
       <img className="provider_logo"
@@ -173,8 +177,11 @@ const Details = () => {
 
           <div className="media-conteiner-box">
 
-            <h2 className="title-details">{movie.title || movie.name} <div className="date">{mediaType === tmdbConfigs.mediaType.movie ? movie.release_date.split("-")[0] : movie.first_air_date.split("-")[0]}</div></h2>
-            <p className="tagline">{movie.tagline}</p>
+            <h1 className="title-details">{movie.title || movie.name} 
+            <span className="date">({mediaType === tmdbConfigs.mediaType.movie ? (movie.release_date.split("-")[0]) : movie.first_air_date.split("-")[0]})</span>
+            </h1>
+            
+            <h3>{movie.tagline}</h3>
             
             <div className="info-details">
               
@@ -198,21 +205,35 @@ const Details = () => {
       
             </div>
 
-            <div className="info description">
               <p>{movie.overview}</p>
-            </div>
-            
 
-    <div className="trailers">
-    {loadingGenres ? (
-        <p></p>
-      ) : (
-    <div>
-       {!showVideo &&  <button onClick={() => setShowVideo(true)}>Abrir vídeo</button>}
-       {showVideo && <YouTube videoId={trailer} opts={opts}/>}
-       {showVideo && <button onClick={() => setShowVideo(false)}>Fechar</button>}
-    </div>
-    )}
+            <div className="cast-box">
+
+            <div style={{marginBottom: "10px",}}>
+            <h3>Elenco principal</h3>
+            </div>
+
+<Swiper
+slidesPerView={6.5} 
+>
+            {isLoading ? (
+  <p>...</p>
+) : 
+      cast.length > 0 ? (
+    (cast.slice(0,20)).map((cast, index) => (
+      <SwiperSlide key={index}>
+       <div className="cast" style={{
+              backgroundImage: `url(${imagesURL + cast.profile_path})`,
+            }}>
+              <div className="cast-barra">
+                <p>{cast.name}</p>
+              </div>
+            </div>
+       </SwiperSlide>
+    ))
+      ) : null}
+</Swiper>
+
     </div>
           </div>
           </div>
@@ -224,6 +245,7 @@ const Details = () => {
     
   );
 };
+
 //<YouTube videoId={trailer} opts={opts}/>
 //<ProgressCircle percent={movie.vote_average.toFixed(1) * 10}/>
 //<p className="rele">{movie.release_date.split("-")[0]}</p>

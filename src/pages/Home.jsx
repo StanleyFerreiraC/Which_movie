@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import MovieCard from "../components/MovieCard";
 import TvCard from "../components/TvCard";
-import PosterSlide from "../components/posterSlide";
+import PosterSlide from "../components/PosterSlide";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
@@ -123,13 +123,13 @@ const [slidesPerView, setSlidePerView] = useState([]);
 
       <Swiper className="poster" 
       slidesPerView={1} 
-       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+       modules={[Navigation, Pagination]}
        autoplay={{
         delay: 5000,
         disableOnInteraction: false,
       }}
        navigation={{clickable: true}}
-       pagination={{ clickable: true}}
+       pagination={{clickable: true}}
        onSwiper={() => console.log()}
        onSlideChange={() => console.log()}
       >
@@ -152,7 +152,7 @@ const [slidesPerView, setSlidePerView] = useState([]);
 
       <Swiper className="app" 
        slidesPerView={slidesPerView}
-       modules={[Navigation, Pagination, Scrollbar, A11y]}
+       modules={[Navigation, Pagination]}
        onSwiper={() => console.log()}
        onSlideChange={() => console.log()}
 

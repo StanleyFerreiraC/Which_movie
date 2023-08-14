@@ -27,8 +27,24 @@
 }
 
 .title-details {
-font-size: 30px;
+  font-size: 3rem;
+margin-bottom: 20px;
 }
+
+.date{
+  color: #f5f2f2;
+  font-size: 2.8rem;
+  margin-left: 20px;
+  opacity: .8;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 
 .media-conteiner{
   display: flex;
@@ -40,13 +56,12 @@ font-size: 30px;
 
 
 .media-conteiner-box{
-  width: 68%;
+  width: 65%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-left: 7%;
-  text-align: center;
 }
+
 #banner_details {
   height: 600px;
   border-radius: 10px;
@@ -76,24 +91,30 @@ font-size: 30px;
   justify-content: center;
   gap: 0.4rem;
 }
+
 #backdrop {
   background-image: linear-gradient(rgba(245,245,245,1), rgba(0,0,0,0))
 }
 
-.date{
-  color: #f5f2f2;
-  font-size: 19px;
+
+
+.genres-full{
+  display: flex;
+  flex-direction: row;
 }
 
-.tagline {
-  text-align: center;
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.genres-border{
+  margin-right: 10px;
+  background-color:#db0e0e;
+  border-radius: 12px;
+  padding: 5px 12px 5px 12px;
 }
-.faStar {
-  margin-bottom: 3rem;
+
+.genres {
+  max-width: 150px;
+  white-space: nowrap;
 }
+
 .info {
   margin-top: 1.5rem;
   margin-bottom: 1.4rem;
@@ -117,27 +138,47 @@ font-size: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 20px 0px 30px 0px;
 }
 
-.genres-full{
+.overview {
   display: flex;
-  flex-direction: row;
 }
 
-.genres-border{
-  margin-right: 10px;
-  background-color:#db0e0e;
-  border-radius: 12px;
-  padding: 5px 12px 5px 12px;
+.cast-box{
+  width: 100%;
+  margin-top: 50px;
 }
 
-.genres {
-  max-width: 150px;
-  white-space: nowrap;
+
+.cast{
+  height: 170px;
+  width: 118px;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 10px;
+}
+
+.cast-barra{
+  background: #27212194;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cast-barra p{
+  font-size: 14px;
+}
+
+#icon-extra{
+  scale: 1.3;
+  margin-right: 5px;
 }
 
 .box-provider {
-  background: #2e26268a;
+  background: #201d1d73;
   border-radius: 10px;
 }
 .providers {
