@@ -23,7 +23,7 @@ const InfoExtras = ({ movie }) => {
       </div>
       <div className="extras">
         <h4>Situação:</h4>
-        <p>{movie.status}</p>
+        <p>{movie.status === "Released" ? "Lançado" : movie.status}</p>
       </div>
       <div className="extras">
         <h4>Data de lançameto:</h4>

@@ -90,6 +90,14 @@
   bottom: 0px;
 }
 
+.app .swiper-button-next {
+  height: 100%;
+  position: absolute;
+  color: #f7d354;
+  top: 17px;
+  right: -5px;
+}
+
 @media (max-width: 450px) {
   .poster .swiper-button-next {
     right: 10px;

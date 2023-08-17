@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 92%;
-  margin-left: 5%;
+  width: 100%;
 }
 
 .app {
-  width: 85%;
+  width: 80%;
+  display: flex;
+  flex-direction: column
 }
 
 .Nota {
@@ -15,6 +16,7 @@
   top: 350px;
   left: 210px;
 }
+
 .poster {
   width: 100%;
   --swiper-theme-color: #f7d354;
@@ -33,7 +35,7 @@
 }
 
 .movie-card {
-  width: 220px;
+  width: 200px;
 }
 
 .container .title {

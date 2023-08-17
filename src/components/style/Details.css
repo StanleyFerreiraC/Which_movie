@@ -292,6 +292,7 @@
   display: flex;
   justify-content: center;
   height: 620px;
+  pointer-events: none;
 }
 
 @media (max-width: 450px) {

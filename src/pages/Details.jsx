@@ -27,6 +27,7 @@ const Details = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingGenres, setLoadingGenres] = useState(true);
   const [wallpapers, setWallpapers] = useState([]);
+  const [situation, setSituation] = useState([]);
 
   const getMedia = async (url) => {
     const res = await fetch(url);
@@ -81,6 +82,8 @@ const Details = () => {
     }
   };
 
+  
+
   const getWallpapers = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
@@ -110,6 +113,7 @@ const Details = () => {
     wallPaperRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
+
   useEffect(() => {
     const delay = 800;
 
@@ -134,7 +138,6 @@ const Details = () => {
     }, delay);
   }, []);
 
-  console.log(wallpapers);
 
   return (
     <div className="media-page">
@@ -289,7 +292,7 @@ const Details = () => {
             className="paper-box"
               slidesPerView={1}
               modules={[Navigation, Pagination]}
-              navigation={ true }
+              navigation={{ clickable: true }}
               pagination={{ clickable: true }}
               onSwiper={() => console.log()}
               onSlideChange={() => console.log()}

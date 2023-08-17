@@ -5,6 +5,7 @@ import PosterSlide from "../components/PosterSlide";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
+
 import "../components/style/MoviesGrid.css";
 import "../components/style/Swiper.css";
 import "../components/style/Resposive.css";
@@ -126,8 +127,6 @@ const Home = () => {
           }}
           navigation={{ clickable: true }}
           pagination={{ clickable: true }}
-          onSwiper={() => console.log()}
-          onSlideChange={() => console.log()}
         >
           {trending.length > 0 &&
             trending.map((movie, index) => (
@@ -146,17 +145,18 @@ const Home = () => {
         <Swiper
           className="app"
           slidesPerView={slidesPerView}
-          modules={[Navigation, Pagination]}
-          onSwiper={() => console.log()}
-          onSlideChange={() => console.log()}
         >
           {nowMovies.length > 0 &&
             nowMovies.map((movie, index) => (
               <SwiperSlide key={index}>
+                <div >
                 <MovieCard key={movie.id} movie={movie} />
+                </div>
               </SwiperSlide>
             ))}
         </Swiper>
+
+
         <div className="title-box">
           <h3 className="title">Popular</h3>
         </div>
