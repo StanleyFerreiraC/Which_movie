@@ -12,6 +12,12 @@ const SwiperPoster = ({children}) => {
       if (window.innerWidth <= 1920) {
         setSpaceBetween(-300);
       }
+      if (window.innerWidth <= 1600) {
+        setSpaceBetween(-220);
+      }
+      if (window.innerWidth <= 1366) {
+        setSpaceBetween(-220);
+      }
       if (window.innerWidth <= 900) {
         setSpaceBetween(100);
       }
