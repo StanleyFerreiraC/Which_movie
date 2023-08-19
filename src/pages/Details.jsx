@@ -97,7 +97,7 @@ const Details = () => {
   const [heightTrailer, setHeightTrailer] = useState([]);
 
   useEffect(() => {
-      function handleResize() {
+      function handleResizez() {
         if (window.innerWidth < 1920) {
           setSpaceBetween(-150);
           setHeightTrailer(500);
@@ -108,12 +108,12 @@ const Details = () => {
         }
       }
   
-      handleResize();
+      handleResizez();
   
-      window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResizez);
   
       return () => {
-        window.removeEventListener("resize", handleResize);
+        window.removeEventListener("resize", handleResizez);
       };
     }, []);
 
