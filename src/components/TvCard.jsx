@@ -11,17 +11,22 @@ import "./style/MoviesGrid.css";
 
 const TvCard = ({ series }) => {
   return (
-    <div className="movie-card">
+    <div className="movie-card" style={{marginBottom: "50px"}}>
       <Link to={`/${tmdbConfigs.mediaType.tv}/${series.id}`}>
         <div
           id="banner"
           style={{ backgroundImage: `url(${imagesURL + series.poster_path})` }}
-        ></div>
-        <div className="Nota">
-          <ProgressCircle percent={series.vote_average * 10} />
+        >
+          <div className="card-info">
+          <div>
+            <ProgressCircle percent={series.vote_average * 10} />
+          </div>    
+          <div>
+          <h2 id="title">{series.title || series.name}</h2>
+          </div>
+         
         </div>
-        <h2 id="title">{series.name}</h2>
-        <p></p>
+        </div>
       </Link>
     </div>
   );

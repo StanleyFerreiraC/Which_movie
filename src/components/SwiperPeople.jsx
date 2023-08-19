@@ -9,7 +9,7 @@ const SwiperPeople = ({children}) => {
     const [spaceBetween, setSpaceBetween] = useState([]);
 
     useEffect(() => {
-        function handleResize() {
+        function handleResizer() {
           if (window.innerWidth < 1920) {
             setSlidePerView(6);
             setSpaceBetween(-60);
@@ -20,12 +20,12 @@ const SwiperPeople = ({children}) => {
           }
         }
     
-        handleResize();
+        handleResizer();
     
-        window.addEventListener("resize", handleResize);
+        window.addEventListener("resize", handleResizer);
     
         return () => {
-          window.removeEventListener("resize", handleResize);
+          window.removeEventListener("resize", handleResizer);
         };
       }, []);
 
