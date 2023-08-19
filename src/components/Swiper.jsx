@@ -9,7 +9,7 @@ const NavigationSwiper = ({ children }) => {
     const [spaceBetween, setSpaceBetween] = useState([]);
 
     useEffect(() => {
-        function handleResize() {
+        function handleResizes() {
           if (window.innerWidth <= 1920) {
             setSlidePerView(6);
             setSpaceBetween(-100);
@@ -32,12 +32,12 @@ const NavigationSwiper = ({ children }) => {
           }
         }
     
-        handleResize();
+        handleResizes();
     
-        window.addEventListener("resize", handleResize);
+        window.addEventListener("resize", handleResizes);
     
         return () => {
-          window.removeEventListener("resize", handleResize);
+          window.removeEventListener("resize", handleResizes);
         };
       }, []);
 
