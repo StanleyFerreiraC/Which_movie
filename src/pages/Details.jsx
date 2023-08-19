@@ -102,15 +102,6 @@ const Details = () => {
           setSpaceBetween(-150);
           setHeightTrailer(500);
         }
-        if (window.innerWidth < 1600) {
-          setHeightTrailer(-300);
-        }
-        if (window.innerWidth < 1366) {
-          setHeightTrailer(-300);
-        }
-        if (window.innerWidth < 900) {
-          setHeightTrailer(10);
-        }
         if (window.innerWidth < 500) {
           setSpaceBetween(0);
           setHeightTrailer(300);
@@ -130,13 +121,6 @@ const Details = () => {
     height: heightTrailer,
     width: "100%",
     playerVars: {},
-  };
-
-  const formatCurrency = (number) => {
-    return number.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
   };
 
   const divRef = useRef();
