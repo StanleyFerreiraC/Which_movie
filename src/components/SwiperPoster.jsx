@@ -38,7 +38,6 @@ const SwiperPoster = ({children}) => {
       spaceBetween={spaceBetween}
       navigation={{ clickable: true }}
       pagination={{ clickable: true }}
-      rewind={true}
     >
       {children}
     </Swiper>

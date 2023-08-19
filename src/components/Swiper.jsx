@@ -51,7 +51,6 @@ const NavigationSwiper = ({ children }) => {
       slidesPerView={slidesPerView}
       slidesPerGroup={3}
       spaceBetween={spaceBetween}
-      rewind={true}
       >
         {children}
       </Swiper>
