@@ -17,12 +17,17 @@ const MovieCard = ({ movie }) => {
         <div
           id="banner"
           style={{ backgroundImage: `url(${imagesURL + movie.poster_path})` }}
-        ></div>
-        <div className="Nota">
-          <ProgressCircle percent={movie.vote_average * 10} />
+        >
+          <div className="card-info">
+          <div>
+            <ProgressCircle percent={movie.vote_average * 10} />
+          </div>    
+          <div>
+          <h2 id="title">{movie.title || movie.name}</h2>
+          </div>
+         
         </div>
-        <h2 id="title">{movie.title || movie.name}</h2>
-        <p></p>
+        </div>
       </Link>
     </div>
   );

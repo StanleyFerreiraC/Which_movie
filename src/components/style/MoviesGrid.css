@@ -6,9 +6,8 @@
 }
 
 .app {
-  width: 80%;
-  display: flex;
-  flex-direction: column
+  width: 100%;
+  padding-left: 110px;
 }
 
 .Nota {
@@ -36,7 +35,26 @@
 
 .movie-card {
   width: 200px;
+  height: 375px;
 }
+
+.card-info{
+  width: 100%;
+  height: 375px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(to top, rgba(0,0,0,1) -0%, rgba(0,0,0,0));
+  visibility: hidden;
+  transition-timing-function: ease;
+  
+}
+
+.movie-card:hover .card-info{
+  visibility: visible;
+}
+
 
 .container .title {
   color: #fff;
@@ -45,7 +63,7 @@
 }
 
 #banner {
-  min-height: 375px;
+  height: 100%;
   width: 250px;
   background-size: cover;
   background-position: center;
@@ -126,4 +144,28 @@
 
 .movies-container div svg {
   color: #f7d354;
+}
+
+.swiper-btn-prev,
+.swiper-btn-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  background-color: #ffffff;
+  box-shadow: 0 0.1rem 0.3rem 0 rgb(0 0 0 / 16%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border: #fff;
+}
+
+.swiper-btn-prev {
+  left: 0;
+}
+
+.swiper-btn-next {
+  left: 100%;
 }

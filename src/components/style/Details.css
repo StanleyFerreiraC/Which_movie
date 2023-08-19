@@ -240,7 +240,6 @@
 .trailer-box {
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #423d3d4f;
@@ -281,7 +280,7 @@
 }
 
 .wallpapers img {
-  width: 90%;
+  width: 88%;
   height: 600px;
 }
 
@@ -293,81 +292,4 @@
   justify-content: center;
   height: 620px;
   pointer-events: none;
-}
-
-@media (max-width: 450px) {
-  #backdrop {
-    z-index: -1;
-    background-size: cover;
-    position: top;
-    left: 0;
-    top: 100px;
-    bottom: 0;
-    width: 100%;
-    height: 30%;
-  }
-
-  .vote {
-    margin-bottom: 15px;
-  }
-  .media-conteiner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    width: 100%;
-  }
-
-  #banner_details {
-    position: relative;
-    bottom: -30px;
-    height: 200px;
-    border-radius: 10px;
-    margin: 0px 0px 100px 19px;
-  }
-
-  .title-details {
-    font-size: 24px;
-    min-width: 300px;
-  }
-
-  .tagline {
-    display: none;
-  }
-
-  .info-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .genres-full {
-    display: flex;
-    flex-direction: row;
-    margin-right: 10px;
-    scale: 0.8;
-  }
-
-  .info {
-    min-width: 320px;
-    margin-right: 10px;
-  }
-
-  .box-provider {
-    background: #2e26268a;
-    border-radius: 10px;
-  }
-
-  .providers {
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    display: none;
-  }
-  .provider_logo {
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
-  }
 }

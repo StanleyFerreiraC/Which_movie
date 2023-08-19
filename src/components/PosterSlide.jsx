@@ -18,6 +18,7 @@ const PosterSlide = ({ movie }) => {
   }
 
   return (
+    <Link to={`/${movie.media_type}/${movie.id}`}>
     <div className="poster-box">
       <div
         className="poster-card"
@@ -51,6 +52,7 @@ const PosterSlide = ({ movie }) => {
         </Link>
       </div>
     </div>
+    </Link>
   );
 };
 

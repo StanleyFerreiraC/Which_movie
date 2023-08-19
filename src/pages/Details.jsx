@@ -7,9 +7,14 @@ import YouTube from "react-youtube";
 import tmdbConfigs from "../config/tmdb.configs";
 
 import "../components/style/Details.css";
+import "../components/style/ResponsiveDetails.css";
 import "../components/style/Swiper.css";
 import ProgressCircle from "../components/ProgressCircle";
 import InfoExtras from "../components/details/InfoExtras";
+import InfoExtrasTv from "../components/details/infoExtrasTv";
+import { Box } from "@mui/material";
+
+import SwiperPeople from "../components/SwiperPeople.jsx";
 
 const geralURL = import.meta.env.VITE_API_GERAL;
 const moviesURL = import.meta.env.VITE_API;
@@ -82,16 +87,47 @@ const Details = () => {
     }
   };
 
-  
-
   const getWallpapers = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
     setWallpapers(data.backdrops);
   };
 
+  const [spaceBetween, setSpaceBetween] = useState([]);
+  const [heightTrailer, setHeightTrailer] = useState([]);
+
+  useEffect(() => {
+      function handleResize() {
+        if (window.innerWidth < 1920) {
+          setSpaceBetween(-150);
+          setHeightTrailer(500);
+        }
+        if (window.innerWidth < 1600) {
+          setHeightTrailer(-300);
+        }
+        if (window.innerWidth < 1366) {
+          setHeightTrailer(-300);
+        }
+        if (window.innerWidth < 900) {
+          setHeightTrailer(10);
+        }
+        if (window.innerWidth < 500) {
+          setSpaceBetween(0);
+          setHeightTrailer(300);
+        }
+      }
+  
+      handleResize();
+  
+      window.addEventListener("resize", handleResize);
+  
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+
   const opts = {
-    height: "500",
+    height: heightTrailer,
     width: "100%",
     playerVars: {},
   };
@@ -112,7 +148,6 @@ const Details = () => {
   function handleClickPaper() {
     wallPaperRef.current.scrollIntoView({ behavior: "smooth" });
   }
-
 
   useEffect(() => {
     const delay = 800;
@@ -138,6 +173,7 @@ const Details = () => {
     }, delay);
   }, []);
 
+  console.log(movie);
 
   return (
     <div className="media-page">
@@ -190,7 +226,7 @@ const Details = () => {
                 </span>
               </h1>
 
-              <h3>{movie.tagline}</h3>
+              <h3 className="tagline">{movie.tagline}</h3>
 
               <div className="info-details">
                 <div className="porcent">
@@ -231,28 +267,30 @@ const Details = () => {
                 </div>
 
                 <div>
-                <Swiper slidesPerView={6.5}>
-                  {isLoading ? (
-                    <p>...</p>
-                  ) : cast.length > 0 ? (
-                    cast.slice(0, 20).map((cast, index) => (
-                      <SwiperSlide key={index}>
-                        <div
-                          className="cast"
-                          style={{
-                            backgroundImage: `url(${
-                              imagesURL + cast.profile_path
-                            })`,
-                          }}
-                        >
-                          <div className="cast-barra">
-                            <p>{cast.name}</p>
+                  <SwiperPeople 
+                  className="people"
+                  >
+                    {isLoading ? (
+                      <p>...</p>
+                    ) : cast.length > 0 ? (
+                      cast.slice(0, 20).map((cast, index) => (
+                        <SwiperSlide key={index}>
+                          <div
+                            className="cast"
+                            style={{
+                              backgroundImage: `url(${
+                                imagesURL + cast.profile_path
+                              })`,
+                            }}
+                          >
+                            <div className="cast-barra">
+                              <p>{cast.name}</p>
+                            </div>
                           </div>
-                        </div>
-                      </SwiperSlide>
-                    ))
-                  ) : null}
-                </Swiper>
+                        </SwiperSlide>
+                      ))
+                    ) : null}
+                  </SwiperPeople>
                 </div>
               </div>
             </div>
@@ -260,44 +298,55 @@ const Details = () => {
 
           <div ref={divRef} className="trailer-extra-box">
             <div>
-            <h2>Trailer</h2>
+              <h2>Trailer</h2>
             </div>
             <div className="trailer-box">
-          <div className="info-extras-box" >
-            <div className="trailers">
-              {loadingGenres ? (
-                <p></p>
-              ) : (
-                <div>
-                  <YouTube videoId={trailer} opts={opts} />
+              <div className="info-extras-box">
+                <div className="trailers">
+                  {loadingGenres ? (
+                    <p></p>
+                  ) : (
+                    <div>
+                      <YouTube videoId={trailer} opts={opts} />
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            <div className="info-extras">
-              {mediaType == "movie" ? (
-                <div>
-                  <InfoExtras movie={movie} />
+                <div className="info-extras">
+                  {mediaType == "movie" ? (
+                    <div>
+                      <InfoExtras movie={movie} />
+                    </div>
+                  ) : (
+                    <InfoExtrasTv movie={movie} />
+                  )}
                 </div>
-              ) : null}
+              </div>
             </div>
-          </div>
-          </div>
           </div>
 
-          <div className="wallpapers" >
-          <div>
-            <h2>Wallpapers</h2>
+          <div className="wallpapers">
+            <div>
+              <h2>Wallpapers</h2>
             </div>
+            <Box
+          sx={{
+            width: "100%",
+            "& .swiper-slide": {
+              opacity: "0.5",
+            },
+            "& .swiper-slide-active": { opacity: 1 },
+          }}
+        >
             <Swiper
-            className="paper-box"
+              className="paper-box"
               slidesPerView={1}
               modules={[Navigation, Pagination]}
               navigation={{ clickable: true }}
               pagination={{ clickable: true }}
-              onSwiper={() => console.log()}
-              onSlideChange={() => console.log()}
+              spaceBetween={spaceBetween}
+              rewind={true}
             >
-              {wallpapers.slice(0,20).map((wallPaper, index) => (
+              {wallpapers.slice(0, 15).map((wallPaper, index) => (
                 <SwiperSlide key={index}>
                   <div ref={wallPaperRef} className="paper">
                     <img src={backURL + wallPaper.file_path} />
@@ -305,6 +354,7 @@ const Details = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+            </Box>
           </div>
         </>
       )}

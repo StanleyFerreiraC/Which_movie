@@ -1,0 +1,136 @@
+@media (max-width: 450px) {
+  .media-conteiner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 100px;
+  }
+
+  .media-conteiner-box {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0%;
+  }
+
+  #backdrop {
+    z-index: -1;
+    background-size: cover;
+    position: top;
+    left: 0;
+    top: 100px;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+  }
+
+  .vote {
+    margin-bottom: 15px;
+  }
+  .media-conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  #banner_details {
+    position: relative;
+    bottom: -30px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 0px 0px 100px 19px;
+  }
+
+  .title-details {
+    font-size: 24px;
+    width: 300px;
+  }
+
+  .date {
+    font-size: 1.4rem;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  .info-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .genres-full {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    scale: 0.8;
+  }
+
+  .info {
+    min-width: 320px;
+    margin-right: 10px;
+  }
+
+  .box-provider {
+    background: #2e26268a;
+    border-radius: 10px;
+  }
+
+  .providers {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    display: none;
+  }
+  .provider_logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+  }
+  .trailer-box {
+    height: 320px;
+  }
+  
+  .info-extras-box {
+    width: 100%;
+    height: 320px;
+  }
+
+
+  .trailers {
+    width: 100%;
+    margin-left: 0px;
+    padding: 10px;
+  }
+
+  .info-extras {
+    display: none;
+}
+
+.wallpapers {
+    width: 80%;
+    height: 200px;
+    margin-top: 80px;
+  }
+  
+  .wallpapers img {
+    width: 88%;
+    height: 200px;
+  }
+  
+  .paper-box {
+    margin-top: 20px;
+  }
+  .paper {
+    display: flex;
+    justify-content: center;
+    height: 230px;
+    pointer-events: none;
+  }
+}

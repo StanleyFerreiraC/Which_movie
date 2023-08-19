@@ -1,9 +1,12 @@
+/* Home poster */
+
 .poster .swiper-button-next {
   height: 100%;
   position: absolute;
   color: #f7d354;
-  top: 17px;
-  right: 140px;
+  top: 0px;
+  right: 0px;
+  width: 130px;
 }
 
 .poster .swiper-button-next {
@@ -15,14 +18,15 @@
 }
 
 .poster .swiper-button-next::after {
-  scale: 0.6;
+  scale: 0.8;
 }
 .poster .swiper-button-prev {
   height: 100%;
   position: absolute;
   color: #f7d354;
-  top: 17px;
-  left: 140px;
+  top: 0px;
+  left: 0px;
+  width: 130px;
 }
 
 .poster .swiper-button-prev {
@@ -34,7 +38,7 @@
 }
 
 .poster .swiper-button-prev::after {
-  scale: 0.6;
+  scale: 0.8;
 }
 
 .slider-arrow ion-icon {
@@ -42,10 +46,56 @@
   color: #d8d8df;
 }
 
+/* HOME grid media */
+
+.app .swiper-button-next {
+  height: 400px;
+  width: 101px;
+  position: absolute;
+  color: #f7d354;
+  top: 0px;
+  right: 0px;
+  background: #000000a1;
+}
+
+.app .swiper-button-next::after {
+  visibility: hidden;
+}
+
+.app:hover .swiper-button-next::after {
+  visibility: visible;
+}
+
+.app .swiper-button-next::after {
+  scale: 0.7;
+}
+
+.app .swiper-button-prev {
+  height: 400px;
+  width: 105px;
+  position: absolute;
+  color: #f7d354;
+  top: 0px;
+  left: 0px;
+  background: #000000a1;
+}
+
+.app .swiper-button-prev::after {
+  visibility: hidden;
+}
+
+.app:hover .swiper-button-prev::after {
+  visibility: visible;
+}
+
+.app .swiper-button-prev::after {
+  scale: 0.7;
+}
+
 /* Swiper details Wallpapers */
 
 .paper-box .swiper-button-next {
-   visibility: hidden; 
+  visibility: hidden;
 }
 
 .paper-box:hover .swiper-button-next {
@@ -64,7 +114,7 @@
 }
 
 .paper-box .swiper-button-prev {
-   visibility: hidden; 
+  visibility: hidden;
 }
 
 .paper-box:hover .swiper-button-prev {
@@ -90,20 +140,99 @@
   bottom: 0px;
 }
 
-.app .swiper-button-next {
-  height: 100%;
-  position: absolute;
-  color: #f7d354;
-  top: 17px;
-  right: -5px;
+/* Swiper People */
+
+.people .swiper-button-next {
+  visibility: hidden;
 }
 
+.people:hover .swiper-button-next {
+  visibility: visible;
+}
+
+.people .swiper-button-next::after {
+  scale: 0.6;
+}
+
+.people .swiper-button-next {
+  height: 100%;
+  color: #f7d354;
+  top: 22px;
+  right: 0px;
+  background: #00000041;
+}
+
+.people .swiper-button-prev {
+  visibility: hidden;
+}
+
+.people:hover .swiper-button-prev {
+  visibility: visible;
+}
+
+.people .swiper-button-prev::after {
+  scale: 0.6;
+}
+
+.people .swiper-button-prev {
+  height: 100%;
+  color: #f7d354;
+  top: 22px;
+  left: 0px;
+  background: #00000041;
+}
 @media (max-width: 450px) {
   .poster .swiper-button-next {
-    right: 10px;
+    height: 400px;
+    width: 50px;
   }
 
   .poster .swiper-button-prev {
-    left: 10px;
+    width: 50px;
+    height: 400px;
+  }
+
+  .app .swiper-button-next {
+    height: 252px;
+    width: 50px;
+  }
+
+  .app .swiper-button-prev {
+    height: 252px;
+    width: 50px;
+  }
+
+  .paper-box .swiper-button-next {
+    height: 203px;
+    color: #f7d354;
+    top: 20px;
+    right: -7px;
+  }
+  .paper-box .swiper-button-prev {
+    height: 203px;
+    color: #f7d354;
+    top: 20px;
+    left: -7px;
+  }
+}
+@media (max-width: 400px) {
+  .poster .swiper-button-next {
+    height: 400px;
+    width: 50px;
+  }
+
+  .poster .swiper-button-prev {
+    width: 50px;
+    height: 400px;
+  }
+
+  .app .swiper-button-next {
+    height: 252px;
+    width: 38px;
+  }
+
+  .app .swiper-button-prev {
+    height: 252px;
+    width: 50px;
   }
 }

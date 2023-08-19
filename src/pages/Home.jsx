@@ -2,17 +2,21 @@ import { useEffect, useState, useRef } from "react";
 import MovieCard from "../components/MovieCard";
 import TvCard from "../components/TvCard";
 import PosterSlide from "../components/PosterSlide";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Box } from "@mui/material";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import Swipers from "../components/Swiper";
+import SwiperPoster from "../components/SwiperPoster";
 
 import "../components/style/MoviesGrid.css";
 import "../components/style/Swiper.css";
-import "../components/style/Resposive.css";
+import "../components/style/ResposiveHome.css";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
+
 
 const Home = () => {
   //resgata o genero para o poster
@@ -85,56 +89,27 @@ const Home = () => {
 
   //console.log(getTrending);
 
-  const [slidesPerView, setSlidePerView] = useState([]);
-
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 1920) {
-        setSlidePerView(5.2);
-      } else {
-        setSlidePerView(5.2);
-      }
-      if (window.innerWidth < 1600) {
-        setSlidePerView(4.2);
-      }
-      if (window.innerWidth < 1230) {
-        setSlidePerView(3.2);
-      }
-      if (window.innerWidth < 900) {
-        setSlidePerView(2.1);
-      }
-    }
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <div>
       <div className="poster-home">
-        <Swiper
-          className="poster"
-          slidesPerView={1}
-          modules={[Navigation, Pagination]}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
+        <Box
+          sx={{
+            width: "100%",
+            "& .swiper-slide": {
+              opacity: "0.5",
+            },
+            "& .swiper-slide-active": { opacity: 1 },
           }}
-          navigation={{ clickable: true }}
-          pagination={{ clickable: true }}
         >
-          {trending.length > 0 &&
-            trending.map((movie, index) => (
-              <SwiperSlide key={index}>
-                <PosterSlide key={movie.id} movie={movie} />
-              </SwiperSlide>
-            ))}
-        </Swiper>
+         <SwiperPoster>
+            {trending.length > 0 &&
+              trending.map((movie, index) => (
+                <SwiperSlide key={index}>
+                  <PosterSlide key={movie.id} movie={movie} />
+                </SwiperSlide>
+              ))}
+          </SwiperPoster>
+        </Box>
       </div>
 
       <div className="container">
@@ -142,57 +117,53 @@ const Home = () => {
           <h3 className="title">Recentes</h3>
         </div>
 
-        <Swiper
-          className="app"
-          slidesPerView={slidesPerView}
-        >
+        <Swipers>
           {nowMovies.length > 0 &&
             nowMovies.map((movie, index) => (
               <SwiperSlide key={index}>
-                <div >
-                <MovieCard key={movie.id} movie={movie} />
+                <div>
+                  <MovieCard key={movie.id} movie={movie} />
                 </div>
               </SwiperSlide>
             ))}
-        </Swiper>
-
+        </Swipers>
 
         <div className="title-box">
           <h3 className="title">Popular</h3>
         </div>
 
-        <Swiper className="app" slidesPerView={slidesPerView}>
+        <Swipers>
           {popularMovies.length > 0 &&
             popularMovies.map((movie, index) => (
               <SwiperSlide key={index}>
                 <MovieCard key={movie.id} movie={movie} />
               </SwiperSlide>
             ))}
-        </Swiper>
+        </Swipers>
         <div className="title-box">
           <h3 className="title">Filmes melhor avaliados</h3>
         </div>
 
-        <Swiper className="app" slidesPerView={slidesPerView}>
+        <Swipers>
           {topMovies.length > 0 &&
             topMovies.map((movie, index) => (
               <SwiperSlide key={index}>
                 <MovieCard key={movie.id} movie={movie} />
               </SwiperSlide>
             ))}
-        </Swiper>
+        </Swipers>
         <div className="title-box">
           <h3 className="title">Séries melhor avaliadas</h3>
         </div>
 
-        <Swiper className="app" slidesPerView={slidesPerView}>
+        <Swipers>
           {tvTopRated.length > 0 &&
             tvTopRated.map((series, index) => (
               <SwiperSlide key={index}>
                 <TvCard key={series.id} series={series} />
               </SwiperSlide>
             ))}
-        </Swiper>
+        </Swipers>
       </div>
     </div>
   );
