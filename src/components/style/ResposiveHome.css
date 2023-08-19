@@ -57,5 +57,11 @@
     visibility: hidden;
   }
 
+  
+.movie-card:hover .card-info{
+  visibility: hidden;
+}
+
+
 }
 
