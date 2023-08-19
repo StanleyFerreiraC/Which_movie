@@ -14,19 +14,19 @@ const NavigationSwiper = ({ children }) => {
             setSlidePerView(6);
             setSpaceBetween(-100);
           }
-          if (window.innerWidth < 1600) {
+          if (window.innerWidth <= 1600) {
             setSlidePerView(4.2);
             setSpaceBetween(-300);
           }
-          if (window.innerWidth < 1366) {
+          if (window.innerWidth <= 1366) {
             setSlidePerView(3.2);
             setSpaceBetween(-300);
           }
-          if (window.innerWidth < 900) {
+          if (window.innerWidth <= 900) {
             setSlidePerView(2);
             setSpaceBetween(10);
           }
-          if (window.innerWidth < 500) {
+          if (window.innerWidth <= 500) {
             setSlidePerView(2);
             setSpaceBetween(-38);
           }

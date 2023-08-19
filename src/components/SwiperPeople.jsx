@@ -10,11 +10,11 @@ const SwiperPeople = ({children}) => {
 
     useEffect(() => {
         function handleResizer() {
-          if (window.innerWidth < 1920) {
+          if (window.innerWidth <= 1920) {
             setSlidePerView(6);
             setSpaceBetween(-60);
           }
-          if (window.innerWidth < 500) {
+          if (window.innerWidth <= 500) {
             setSlidePerView(3);
             setSpaceBetween(-80);
           }

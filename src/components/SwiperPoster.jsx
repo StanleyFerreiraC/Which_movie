@@ -8,24 +8,24 @@ const SwiperPoster = ({children}) => {
   const [spaceBetween, setSpaceBetween] = useState([]);
 
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 1920) {
+    function handleResizex() {
+      if (window.innerWidth <= 1920) {
         setSpaceBetween(-300);
       }
-      if (window.innerWidth < 900) {
+      if (window.innerWidth <= 900) {
         setSpaceBetween(100);
       }
-      if (window.innerWidth < 500) {
+      if (window.innerWidth <= 500) {
         setSpaceBetween(0);
       }
     }
 
-    handleResize();
+    handleResizex();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResizex);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResizex);
     };
   }, []);
 

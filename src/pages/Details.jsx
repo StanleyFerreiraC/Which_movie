@@ -98,11 +98,11 @@ const Details = () => {
 
   useEffect(() => {
       function handleResizez() {
-        if (window.innerWidth < 1920) {
+        if (window.innerWidth <= 1920) {
           setSpaceBetween(-150);
           setHeightTrailer(500);
         }
-        if (window.innerWidth < 500) {
+        if (window.innerWidth <= 500) {
           setSpaceBetween(0);
           setHeightTrailer(300);
         }
