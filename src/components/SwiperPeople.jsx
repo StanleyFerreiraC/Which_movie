@@ -14,8 +14,20 @@ const SwiperPeople = ({children}) => {
             setSlidePerView(6);
             setSpaceBetween(-60);
           }
-          if (window.innerWidth <= 500) {
+          if (window.innerWidth <= 1600) {
+            setSlidePerView(5);
+            setSpaceBetween(-60);
+          }
+          if (window.innerWidth <= 1390) {
+            setSlidePerView(4);
+            setSpaceBetween(-60);
+          }
+          if (window.innerWidth <= 1000) {
             setSlidePerView(3);
+            setSpaceBetween(-60);
+          }
+          if (window.innerWidth <= 500) {
+            setSlidePerView(2);
             setSpaceBetween(-80);
           }
         }
