@@ -29,12 +29,12 @@ const Home = () => {
   };
 
   // Lançamentos recentes
-  const [nowMovies, setNowMovies] = useState([]);
+  const [tvPopular, setTvPopularUrl] = useState([]);
 
-  const getNowMovies = async (url) => {
+  const getTvPopular = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    setNowMovies(data.results);
+    setTvPopularUrl(data.results);
   };
 
   // Filmes populares
@@ -70,8 +70,8 @@ const Home = () => {
     const trendingUrl = `${geralURL}trending/all/day?${apiKey}&language=pt-BR`;
     getTrending(trendingUrl);
 
-    const nowUrl = `${geralURL}${tmdbConfigs.mediaType.movie}/now_playing?${apiKey}&language=pt-BR`;
-    getNowMovies(nowUrl);
+    const tvPopularUrl = `${geralURL}${tmdbConfigs.mediaType.tv}/popular?${apiKey}&language=pt-BR`;
+    getTvPopular(tvPopularUrl);
 
     // Solicita os filmes populares
     const popularUrl = `${geralURL}${tmdbConfigs.mediaType.movie}/popular?${apiKey}&language=pt-BR`;
@@ -113,23 +113,10 @@ const Home = () => {
       </div>
 
       <div className="container">
-        <div className="title-box">
-          <h3 className="title">Recentes</h3>
-        </div>
-
-        <Swipers>
-          {nowMovies.length > 0 &&
-            nowMovies.map((movie, index) => (
-              <SwiperSlide key={index}>
-                <div>
-                  <MovieCard key={movie.id} movie={movie} />
-                </div>
-              </SwiperSlide>
-            ))}
-        </Swipers>
+        
 
         <div className="title-box">
-          <h3 className="title">Popular</h3>
+          <h3 className="title">Filmes populares</h3>
         </div>
 
         <Swipers>
@@ -140,6 +127,22 @@ const Home = () => {
               </SwiperSlide>
             ))}
         </Swipers>
+
+        <div className="title-box">
+          <h3 className="title">Series populares</h3>
+        </div>
+
+        <Swipers>
+          {tvPopular.length > 0 &&
+            tvPopular.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <div>
+                  <MovieCard key={movie.id} movie={movie} />
+                </div>
+              </SwiperSlide>
+            ))}
+        </Swipers>
+
         <div className="title-box">
           <h3 className="title">Filmes melhor avaliados</h3>
         </div>

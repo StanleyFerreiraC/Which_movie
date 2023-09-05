@@ -38,6 +38,7 @@ const SwiperPoster = ({children}) => {
   return (
     <Swiper
       className="poster"
+      id="paper-box"
       modules={[Navigation, Pagination, Autoplay]}
       autoplay={{ delay: 5000 }}
       initialSlide={1}

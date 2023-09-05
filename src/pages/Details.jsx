@@ -15,6 +15,8 @@ import InfoExtrasTv from "../components/details/infoExtrasTv";
 import { Box } from "@mui/material";
 
 import SwiperPeople from "../components/SwiperPeople.jsx";
+import SwiperPoster from "../components/SwiperPoster";
+import SwiperWallpaper from "../components/SwiperWallpaper";
 
 const geralURL = import.meta.env.VITE_API_GERAL;
 const moviesURL = import.meta.env.VITE_API;
@@ -321,14 +323,7 @@ const Details = () => {
             "& .swiper-slide-active": { opacity: 1 },
           }}
         >
-            <Swiper
-              className="paper-box"
-              slidesPerView={1}
-              modules={[Navigation, Pagination]}
-              navigation={{ clickable: true }}
-              pagination={{ clickable: true }}
-              spaceBetween={spaceBetween}
-              rewind={true}
+            <SwiperWallpaper
             >
               {wallpapers.slice(0, 15).map((wallPaper, index) => (
                 <SwiperSlide key={index}>
@@ -337,7 +332,7 @@ const Details = () => {
                   </div>
                 </SwiperSlide>
               ))}
-            </Swiper>
+            </SwiperWallpaper>
             </Box>
           </div>
         </>
