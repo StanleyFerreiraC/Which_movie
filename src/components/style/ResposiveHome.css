@@ -1,3 +1,15 @@
+@media (max-width: 1366px) {
+  .app {
+    padding-right: 0px;
+    padding-left: 50px;
+  }
+
+  .movie-card {
+    width: 200px;
+    height: 350px;
+  }
+
+}
 
 @media (max-width: 900px) {
   .info-details-poster {
@@ -18,6 +30,7 @@
 }
 
 @media (max-width: 450px) {
+
   .info-details-poster {
     display: flex;
     margin-top: 200px;
@@ -28,11 +41,11 @@
 
   #banner {
     width: 100%;
-    max-height: 230px;
-    min-height: 230px;
+   height: 100%;
   }
   .movie-card {
-    width: 150px;
+    width: 120px;
+    height: 180px;
   }
 
   #poster-title {
@@ -46,11 +59,18 @@
   }
 
   .app {
-    padding-left: 50px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 
   .title-box {
     margin: 4rem 0 1rem;
+  }
+
+  .title {
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
   }
 
   .card-info{

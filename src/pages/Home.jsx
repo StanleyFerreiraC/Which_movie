@@ -5,7 +5,6 @@ import PosterSlide from "../components/PosterSlide";
 import { Box } from "@mui/material";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Swipers from "../components/Swiper";
 import SwiperPoster from "../components/SwiperPoster";
 
@@ -16,6 +15,7 @@ import "../components/style/ResposiveHome.css";
 const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
+import Portifolio from "../components/Portifolio";
 
 
 const Home = () => {
@@ -134,12 +134,10 @@ const Home = () => {
 
         <Swipers>
           {tvPopular.length > 0 &&
-            tvPopular.map((movie, index) => (
+            tvPopular.map((series, index) => (
               <SwiperSlide key={index}>
-                <div>
-                  <MovieCard key={movie.id} movie={movie} />
-                </div>
-              </SwiperSlide>
+              <TvCard key={series.id} series={series} />
+            </SwiperSlide>
             ))}
         </Swipers>
 
@@ -167,6 +165,9 @@ const Home = () => {
               </SwiperSlide>
             ))}
         </Swipers>
+        <div className="portifolio">
+          <Portifolio/>
+        </div>
       </div>
     </div>
   );

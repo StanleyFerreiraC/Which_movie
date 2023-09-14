@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import YouTube from "react-youtube";
+import { saveAs } from "file-saver";
 
 import tmdbConfigs from "../config/tmdb.configs";
-
 import "../components/style/Details.css";
 import "../components/style/ResponsiveDetails.css";
 import "../components/style/Swiper.css";
@@ -15,7 +14,6 @@ import InfoExtrasTv from "../components/details/infoExtrasTv";
 import { Box } from "@mui/material";
 
 import SwiperPeople from "../components/SwiperPeople.jsx";
-import SwiperPoster from "../components/SwiperPoster";
 import SwiperWallpaper from "../components/SwiperWallpaper";
 
 const geralURL = import.meta.env.VITE_API_GERAL;
@@ -34,7 +32,7 @@ const Details = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingGenres, setLoadingGenres] = useState(true);
   const [wallpapers, setWallpapers] = useState([]);
-  const [situation, setSituation] = useState([]);
+  const [download, setDownload] = useState([]);
 
   const getMedia = async (url) => {
     const res = await fetch(url);
@@ -99,25 +97,25 @@ const Details = () => {
   const [heightTrailer, setHeightTrailer] = useState([]);
 
   useEffect(() => {
-      function handleResizez() {
-        if (window.innerWidth <= 1920) {
-          setSpaceBetween(-150);
-          setHeightTrailer(500);
-        }
-        if (window.innerWidth <= 500) {
-          setSpaceBetween(0);
-          setHeightTrailer(300);
-        }
+    function handleResizez() {
+      if (window.innerWidth <= 1920) {
+        setSpaceBetween(-150);
+        setHeightTrailer(500);
       }
-  
-      handleResizez();
-  
-      window.addEventListener("resize", handleResizez);
-  
-      return () => {
-        window.removeEventListener("resize", handleResizez);
-      };
-    }, []);
+      if (window.innerWidth <= 500) {
+        setSpaceBetween(0);
+        setHeightTrailer(300);
+      }
+    }
+
+    handleResizez();
+
+    window.addEventListener("resize", handleResizez);
+
+    return () => {
+      window.removeEventListener("resize", handleResizez);
+    };
+  }, []);
 
   const opts = {
     height: heightTrailer,
@@ -159,7 +157,9 @@ const Details = () => {
     }, delay);
   }, []);
 
-  console.log(movie);
+  const handleClickSave = (url) => {
+    saveAs(url, "WallPaper");
+  };
 
   return (
     <div className="media-page">
@@ -253,9 +253,7 @@ const Details = () => {
                 </div>
 
                 <div>
-                  <SwiperPeople 
-                  className="people"
-                  >
+                  <SwiperPeople className="people">
                     {isLoading ? (
                       <p>...</p>
                     ) : cast.length > 0 ? (
@@ -315,24 +313,36 @@ const Details = () => {
               <h2>Wallpapers</h2>
             </div>
             <Box
-          sx={{
-            width: "100%",
-            "& .swiper-slide": {
-              opacity: "0.5",
-            },
-            "& .swiper-slide-active": { opacity: 1 },
-          }}
-        >
-            <SwiperWallpaper
+              sx={{
+                width: "100%",
+                "& .swiper-slide": {
+                  opacity: "0.5",
+                },
+                "& .swiper-slide-active": { opacity: 1 },
+              }}
             >
-              {wallpapers.slice(0, 15).map((wallPaper, index) => (
-                <SwiperSlide key={index}>
-                  <div ref={wallPaperRef} className="paper">
-                    <img src={backURL + wallPaper.file_path} />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </SwiperWallpaper>
+              <SwiperWallpaper>
+                {wallpapers.slice(0, 15).map((wallPapers, index) => (
+                  <SwiperSlide key={index}>
+                    <div ref={wallPaperRef} className="paper">
+                      <img src={backURL + wallPapers.file_path} />
+                      <button
+                        className="download"
+                        onClick={() => {
+                          handleClickSave(backURL + wallPapers.file_path);
+                        }}
+                      >
+                        <ion-icon
+                          name="cloud-download-outline"
+                          style={{
+                            color: "rgba(255, 255, 255)",
+                          }}
+                        ></ion-icon>
+                      </button>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </SwiperWallpaper>
             </Box>
           </div>
         </>

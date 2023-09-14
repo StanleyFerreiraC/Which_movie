@@ -38,25 +38,32 @@
   height: 375px;
 }
 
-.card-info{
+.movie-card-search {
+  height: 100%;
+  width: 320px;
+}
+
+.card-info {
   width: 100%;
   height: 375px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-image: linear-gradient(to top, rgba(0,0,0,1) -0%, rgba(0,0,0,0));
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) -0%,
+    rgba(0, 0, 0, 0)
+  );
   visibility: hidden;
   transition-timing-function: ease;
-  
 }
 
-.movie-card:hover .card-info{
+.movie-card:hover .card-info {
   visibility: visible;
 }
 
-
-.container .title {
+.title {
   color: #fff;
   font-size: 1.9rem;
   text-align: center;
@@ -68,6 +75,12 @@
   background-size: cover;
   background-position: center;
   border-radius: 10px;
+}
+
+#banner-search {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
 }
 
 .title .query-text {
@@ -168,4 +181,8 @@
 
 .swiper-btn-next {
   left: 100%;
+}
+
+.portifolio {
+  width: 100%;
 }

@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { FaStar } from "react-icons/fa";
 
 const imagesURL = import.meta.env.VITE_IMG;
 const apiKey = import.meta.env.VITE_API_KEY;

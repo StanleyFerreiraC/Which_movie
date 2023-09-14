@@ -43,6 +43,7 @@ const SwiperWallpaper = ({children}) => {
         spaceBetween={spaceBetween}
         navigation={{ clickable: true }}
         pagination={{ clickable: true }}
+        rewind
       >
         {children}
       </Swiper>

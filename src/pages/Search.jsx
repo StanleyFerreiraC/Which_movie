@@ -46,7 +46,7 @@ const Search = () => {
       <h2 className="title">
         Resultados para: <span className="query-text">{(query, queryTv)}</span>
       </h2>
-      <div className="movies-containerSearch">
+      <div className="movies-container-search">
         {movies.length > 0 &&
           movies.map((movie) => <SearchCard key={movie.id} movie={movie} />)}
 

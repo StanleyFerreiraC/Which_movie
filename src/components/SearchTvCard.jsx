@@ -9,15 +9,22 @@ import ProgressCircle from "./ProgressCircle";
 
 const SearchTvCard = ({ series }) => {
   return (
-    <div className="movie-card">
+    <div className="movie-card-search">
       <Link to={`/${tmdbConfigs.mediaType.tv}/${series.id}`}>
-        <img
-          id="banner"
-          src={imagesURL + series.poster_path}
-          alt={series.title}
-        />
-        <h2 id="title">{series.name}</h2>
-        <p></p>
+      <div
+           id="banner-search"
+          style={{ backgroundImage: `url(${imagesURL + series.poster_path})` }}
+        >
+          <div className="card-info">
+          <div>
+            <ProgressCircle percent={series.vote_average * 10} />
+          </div>    
+          <div>
+          <h2 id="title">{series.title || series.name}</h2>
+          </div>
+         
+        </div>
+        </div>
       </Link>
     </div>
   );

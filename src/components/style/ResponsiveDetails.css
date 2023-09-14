@@ -16,7 +16,6 @@
   }
 
   #backdrop {
-    z-index: -1;
     background-size: cover;
     position: top;
     left: 0;
@@ -35,6 +34,7 @@
     align-items: center;
     border-radius: 10px;
     width: 100%;
+    margin-top: 0px;
   }
 
   #banner_details {
@@ -131,6 +131,11 @@
     display: flex;
     justify-content: center;
     height: 230px;
-    pointer-events: none;
+  }
+  .download{
+    height: 30px;
+    width: 30px;
+    right: 28px;
+    top: 10px;
   }
 }
