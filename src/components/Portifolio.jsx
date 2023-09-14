@@ -20,8 +20,11 @@ const Portifolio = () => {
         <img className="logo" src={Logo}></img>
       </div>
       
-      <div>
-
+      <div className="infoContants">
+      <h5 className="a">Developer</h5>
+      <a className="name">Stanley Ferreira</a>
+      <h5 className="contacts">Contacts</h5>
+      <a className="email">Stanley_Ferreira_@outlook.com</a>
       </div>
     </div>
   );

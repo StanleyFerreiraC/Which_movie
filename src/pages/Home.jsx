@@ -165,9 +165,6 @@ const Home = () => {
               </SwiperSlide>
             ))}
         </Swipers>
-        <div className="portifolio">
-          <Portifolio/>
-        </div>
       </div>
     </div>
   );

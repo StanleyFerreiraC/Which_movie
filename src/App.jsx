@@ -7,12 +7,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import Portifolio from "./components/Portifolio";
 
 function App() {
   return (
     <div className="app-container">
       <Navbar />
       <Outlet />
+      <Portifolio />
     </div>
   );
 }
