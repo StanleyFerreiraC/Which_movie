@@ -16,7 +16,6 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
 
-
 const Home = () => {
   //resgata o genero para o poster
   const [trending, setTrending] = useState([]);
@@ -100,7 +99,7 @@ const Home = () => {
             "& .swiper-slide-active": { opacity: 1 },
           }}
         >
-         <SwiperPoster>
+          <SwiperPoster>
             {trending.length > 0 &&
               trending.map((movie, index) => (
                 <SwiperSlide key={index}>
@@ -112,8 +111,6 @@ const Home = () => {
       </div>
 
       <div className="container">
-        
-
         <div className="title-box">
           <h3 className="title">Filmes populares</h3>
         </div>
@@ -135,8 +132,8 @@ const Home = () => {
           {tvPopular.length > 0 &&
             tvPopular.map((series, index) => (
               <SwiperSlide key={index}>
-              <TvCard key={series.id} series={series} />
-            </SwiperSlide>
+                <TvCard key={series.id} series={series} />
+              </SwiperSlide>
             ))}
         </Swipers>
 

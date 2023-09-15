@@ -12,7 +12,7 @@ const NavigationSwiper = ({ children }) => {
   useEffect(() => {
     function handleResizes() {
       if (window.innerWidth <= 1920) {
-        setSpaceBetween(-1365);
+        setSpaceBetween(-1450);
         setSlidesPerGroup(3);
         setFreeMode("enabled: false")
       }
@@ -22,8 +22,7 @@ const NavigationSwiper = ({ children }) => {
         setFreeMode("enabled: false")
       }
       if (window.innerWidth <= 1366) {
-        setSlidePerView(3.2);
-        setSpaceBetween(-1060);
+        setSpaceBetween(-1100);
         setFreeMode("enabled: false")
       }
       if (window.innerWidth <= 900) {
@@ -55,7 +54,7 @@ const NavigationSwiper = ({ children }) => {
       spaceBetween={spaceBetween}
       slidesPerGroup={slidesPerGroup}
       freeMode={freeMode}
-      initialSlide={0}
+      rewind={true}
     >
       {children}
     </Swiper>

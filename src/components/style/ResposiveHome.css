@@ -8,7 +8,6 @@
     width: 200px;
     height: 350px;
   }
-
 }
 
 @media (max-width: 900px) {
@@ -26,11 +25,9 @@
     font-size: 3rem;
     width: 500px;
   }
-
 }
 
 @media (max-width: 450px) {
-
   .info-details-poster {
     display: flex;
     margin-top: 200px;
@@ -41,7 +38,7 @@
 
   #banner {
     width: 100%;
-   height: 100%;
+    height: 100%;
   }
   .movie-card {
     width: 120px;
@@ -73,15 +70,11 @@
     text-align: center;
   }
 
-  .card-info{
+  .card-info {
     visibility: hidden;
   }
 
-  
-.movie-card:hover .card-info{
-  visibility: hidden;
+  .movie-card:hover .card-info {
+    visibility: hidden;
+  }
 }
-
-
-}
-

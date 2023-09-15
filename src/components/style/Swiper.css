@@ -50,7 +50,7 @@
 
 .app .swiper-button-next {
   height: 400px;
-  width: 90px;
+  width: 170px;
   position: absolute;
   color: #f7d354;
   top: 0px;
@@ -72,7 +72,7 @@
 
 .app .swiper-button-prev {
   height: 400px;
-  width: 105px;
+  width: 145px;
   position: absolute;
   color: #f7d354;
   top: 0px;
@@ -182,24 +182,21 @@
   background: #00000041;
 }
 @media (max-width: 1600px) {
-
   .app .swiper-button-next {
     width: 170px;
   }
-
 }
 
 @media (max-width: 1366px) {
-
   .app .swiper-button-next {
-    width: 40px;
+    width: 60px;
     height: 372px;
   }
   .app .swiper-button-prev {
-    width: 45px;
+    width: 50px;
     height: 372px;
+    background: #00000000;
   }
-
 }
 @media (max-width: 450px) {
   .poster .swiper-button-next {
@@ -237,11 +234,11 @@
   .app:hover .swiper-button-prev::after {
     visibility: hidden;
   }
-  .app:hover .swiper-button-prev{
+  .app:hover .swiper-button-prev {
     visibility: hidden;
   }
 
-  .app .swiper-button-prev{
+  .app .swiper-button-prev {
     visibility: hidden;
   }
 
@@ -249,16 +246,15 @@
     visibility: hidden;
   }
 
-  .app:hover .swiper-button-next{
+  .app:hover .swiper-button-next {
     visibility: hidden;
   }
 
-  .app .swiper-button-next{
+  .app .swiper-button-next {
     visibility: hidden;
   }
 }
 @media (max-width: 400px) {
-
   .poster .swiper-button-prev {
     width: 50px;
     height: 400px;
@@ -273,5 +269,4 @@
     height: 252px;
     width: 50px;
   }
-  
 }
