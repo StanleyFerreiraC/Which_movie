@@ -12,7 +12,6 @@ const NavigationSwiper = ({ children }) => {
   useEffect(() => {
     function handleResizes() {
       if (window.innerWidth <= 1920) {
-        setSlidePerView(6);
         setSpaceBetween(-1365);
         setSlidesPerGroup(3);
         setFreeMode("enabled: false")

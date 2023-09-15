@@ -15,7 +15,6 @@ import "../components/style/ResposiveHome.css";
 const apiKey = import.meta.env.VITE_API_KEY;
 const geralURL = import.meta.env.VITE_API_GERAL;
 import tmdbConfigs from "../config/tmdb.configs";
-import Portifolio from "../components/Portifolio";
 
 
 const Home = () => {
@@ -87,7 +86,7 @@ const Home = () => {
     getTvTopRated(tvUrl);
   }, []);
 
-  //console.log(getTrending);
+  //console.log(trending);
 
   return (
     <div>
