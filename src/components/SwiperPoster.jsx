@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper } from "swiper/react";
 
-const SwiperPoster = ({children}) => {
+const SwiperPoster = ({ children }) => {
   const [spaceBetween, setSpaceBetween] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const SwiperPoster = ({children}) => {
       className="poster"
       id="paper-box"
       modules={[Navigation, Pagination, Autoplay]}
-      autoplay={{ delay: 5000 }}
+      autoplay={{ delay: 4000 }}
       initialSlide={1}
       spaceBetween={spaceBetween}
       navigation={{ clickable: true }}
