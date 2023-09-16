@@ -225,33 +225,40 @@
     top: 20px;
     right: -7px;
   }
+  
   .paper-box .swiper-button-prev {
     height: 203px;
     color: #f7d354;
     top: 20px;
     left: -7px;
   }
+  
   .app:hover .swiper-button-prev::after {
     visibility: hidden;
   }
   .app:hover .swiper-button-prev {
     visibility: hidden;
+    display: none;
   }
 
   .app .swiper-button-prev {
     visibility: hidden;
+    display: none;
   }
 
   .app .swiper-button-next::after {
     visibility: hidden;
+    display: none;
   }
 
   .app:hover .swiper-button-next {
     visibility: hidden;
+    display: none;
   }
 
   .app .swiper-button-next {
     visibility: hidden;
+    display: none;
   }
 }
 @media (max-width: 400px) {

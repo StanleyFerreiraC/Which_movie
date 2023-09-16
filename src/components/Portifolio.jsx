@@ -7,6 +7,12 @@ import LogoTheMovie from "../assets/Themoviedb.png";
 import "./style/Portifolio.css";
 
 const Portifolio = () => {
+
+    function handleClickLink() {
+      window.location.assign("https://github.com/StanleyFerreiraC");
+    }
+
+
   return (
     <div className="boxRodape">
       <div className="ferramentas">
@@ -21,9 +27,7 @@ const Portifolio = () => {
 
       <div className="infoContants">
         <h5 className="text">Developer</h5>
-        <a className="developer">Stanley Ferreira</a>
-        <h5 className="contacts">Contacts</h5>
-        <a className="email">Stanley_Ferreira_@outlook.com</a>
+        <button onClick={handleClickLink} className="developer">Stanley Ferreira</button>
       </div>
     </div>
   );
