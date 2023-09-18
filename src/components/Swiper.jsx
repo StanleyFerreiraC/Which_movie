@@ -35,6 +35,16 @@ const NavigationSwiper = ({ children }) => {
         setSpaceBetween(-290);
         setFreeMode("enabled: true")
       }
+      if (window.innerWidth <= 400) {
+        setSlidePerView(3);
+        setSpaceBetween(-250);
+        setFreeMode("enabled: true")
+      }
+      if (window.innerWidth <= 368) {
+        setSlidePerView(3);
+        setSpaceBetween(-240);
+        setFreeMode("enabled: true")
+      }
     }
 
     handleResizes();
