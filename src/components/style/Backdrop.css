@@ -42,8 +42,10 @@
 @media (max-width: 450px) {
   .poster-card {
     height: 330px;
+    width: 100%;
     background-position: center;
     padding-bottom: 100px;
+    border-radius: 0px;
   }
   .infoPoster {
     display: none;
