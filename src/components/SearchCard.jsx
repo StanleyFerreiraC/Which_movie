@@ -4,6 +4,7 @@ const imagesURL = import.meta.env.VITE_IMG;
 const apiKey = import.meta.env.VITE_API_KEY;
 const backURL = import.meta.env.VITE_BACK_IMG;
 import "./style/MoviesGrid.css";
+import "./style/Search.css"
 import tmdbConfigs from "../config/tmdb.configs";
 import ProgressCircle from "./ProgressCircle";
 

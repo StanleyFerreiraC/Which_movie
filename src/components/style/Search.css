@@ -56,9 +56,21 @@
     list-style: none;
     display: grid;
     padding-left: 3rem;
-    max-width: 95%;
+    padding-top: 0;
+    max-width: 100%;
     margin: 0 auto;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
+
+  .movies-container-search div {
+    width: 170px;
+    height: 230px;
+    display: block;
+    margin-bottom: 0px;
+  }
+
+  .containerSearch .title {
+    font-size: 1.5rem;
+  }
+  
 }
