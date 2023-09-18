@@ -72,5 +72,29 @@
   .containerSearch .title {
     font-size: 1.5rem;
   }
+
+  @media (max-width: 380px) {
+    .movies-container-search {
+      list-style: none;
+      display: grid;
+      padding-left: 3.1rem;
+      padding-top: 0;
+      max-width: 100%;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+  
+    .movies-container-search div {
+      width: 150px;
+      height: 230px;
+      display: block;
+      margin-bottom: 0px;
+    }
+  
+    .containerSearch .title {
+      font-size: 1.5rem;
+    }
+    
+  }
   
 }
