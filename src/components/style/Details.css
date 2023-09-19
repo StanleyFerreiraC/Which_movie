@@ -104,10 +104,11 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 10px;
+  gap: 10px;
 }
 
 .genres-border {
-  margin-right: 10px;
+ 
   background-color: #db0e0e;
   border-radius: 12px;
   padding: 5px 12px 5px 12px;
