@@ -221,7 +221,7 @@
   background: #423d3d4f;
   border-radius: 10px;
 }
-.providers {
+.box-providers {
   display: flex;
   flex-direction: row;
   justify-content: center;

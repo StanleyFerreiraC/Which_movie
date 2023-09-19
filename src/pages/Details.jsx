@@ -14,10 +14,9 @@ import InfoExtrasTv from "../components/details/infoExtrasTv";
 import { Box } from "@mui/material";
 
 import SwiperPeople from "../components/SwiperPeople.jsx";
-import SwiperWallpaper from "../components/SwiperWallpaper";
+import SwiperWallpaper from "../components/SwiperWallpaper.jsx";
 
 const geralURL = import.meta.env.VITE_API_GERAL;
-const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 const imagesURL = import.meta.env.VITE_IMG;
 const backURL = import.meta.env.VITE_BACK_IMG;
@@ -32,7 +31,6 @@ const Details = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingGenres, setLoadingGenres] = useState(true);
   const [wallpapers, setWallpapers] = useState([]);
-  const [download, setDownload] = useState([]);
 
   const getMedia = async (url) => {
     const res = await fetch(url);
@@ -186,7 +184,7 @@ const Details = () => {
                 {isLoading ? (
                   <p>...</p>
                 ) : providers.length > 0 ? (
-                  <ul className="providers">
+                  <ul className="box-providers">
                     {providers.map((provider, index) => (
                       <img
                         className="provider_logo"

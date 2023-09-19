@@ -90,10 +90,10 @@
     margin-bottom: 20px;
   }
 
-  .providers {
+  .box-providers {
     display: flex;
     flex-direction: row;
-    margin: 0px;
+    padding: 2px;
   }
   .provider_logo {
     height: 40px;
