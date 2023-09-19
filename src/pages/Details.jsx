@@ -243,7 +243,7 @@ const Details = () => {
                 </button>
                 <button className="wallPaper" onClick={handleClickPaper}>
                   <ion-icon id="icon-wallpaper" name="image-outline"></ion-icon>
-                  Plano de fundo
+                  WallPaper
                 </button>
               </div>
 
@@ -282,7 +282,7 @@ const Details = () => {
 
           <div ref={divRef} className="trailer-extra-box">
             <div>
-              <h2>Trailer</h2>
+              <h3 style={{marginBottom:"10px"}}>Trailer</h3>
             </div>
             <div className="trailer-box">
               <div className="info-extras-box">
@@ -310,7 +310,7 @@ const Details = () => {
 
           <div className="wallpapers">
             <div>
-              <h2>Wallpapers</h2>
+              <h3 >Wallpapers</h3>
             </div>
             <Box
               sx={{

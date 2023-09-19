@@ -1,4 +1,9 @@
 @media (max-width: 450px) {
+  .posterProvide{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+  }
   .media-conteiner {
     display: flex;
     flex-direction: row;
@@ -43,7 +48,7 @@
     bottom: -30px;
     height: 200px;
     border-radius: 10px;
-    margin: 0px 0px 100px 19px;
+    margin: 0px 0px 30px 0px;
   }
 
   .title-details {
@@ -80,19 +85,20 @@
   }
 
   .box-provider {
-    background: #2e26268a;
+    background: #2e262669;
     border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 
   .providers {
     display: flex;
     flex-direction: row;
     margin: 0px;
-    display: none;
   }
   .provider_logo {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 10px;
   }
   .trailer-box {
@@ -102,6 +108,15 @@
   .info-extras-box {
     width: 100%;
     height: 320px;
+  }
+
+  .cast {
+    height: 140px;
+    width: 100px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 10px;
   }
 
 
@@ -122,8 +137,9 @@
   }
   
   .wallpapers img {
-    width: 88%;
+    width: 100%;
     height: 200px;
+
   }
   
   .paper-box {
@@ -137,7 +153,7 @@
   .download{
     height: 30px;
     width: 30px;
-    right: 28px;
+    right: 14px;
     top: 10px;
   }
 }

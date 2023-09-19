@@ -30,6 +30,10 @@ const SwiperPeople = ({children}) => {
             setSlidePerView(2);
             setSpaceBetween(-80);
           }
+          if (window.innerWidth <= 380) {
+            setSlidePerView(2);
+            setSpaceBetween(-70);
+          }
         }
     
         handleResizer();
