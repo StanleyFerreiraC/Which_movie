@@ -132,7 +132,7 @@ const Details = () => {
   }
 
   useEffect(() => {
-    const delay = 800;
+    const delay = 2000;
 
     const mediaUrl = `${geralURL}${mediaType}/${id}?${apiKey}&language=pt-BR`;
     getMedia(mediaUrl);
@@ -194,7 +194,9 @@ const Details = () => {
                       />
                     ))}
                   </ul>
-                ) : null}
+                ) : (
+                  console.log("ola terra")
+                )}
               </div>
             </div>
 
@@ -280,7 +282,7 @@ const Details = () => {
 
           <div ref={divRef} className="trailer-extra-box">
             <div>
-              <h3 style={{marginBottom:"10px"}}>Trailer</h3>
+              <h3 style={{ marginBottom: "10px" }}>Trailer</h3>
             </div>
             <div className="trailer-box">
               <div className="info-extras-box">
@@ -308,7 +310,7 @@ const Details = () => {
 
           <div className="wallpapers">
             <div>
-              <h3 >Wallpapers</h3>
+              <h3>Wallpapers</h3>
             </div>
             <Box
               sx={{
